@@ -1,5 +1,5 @@
 from django.test import TestCase
-from .models import Product
+from .models import ProductSelling, ProductWanted
 
 # Create your tests here.
 class ProductTests(TestCase):
@@ -9,5 +9,5 @@ class ProductTests(TestCase):
     """
     
     def test_str(self):
-        test_name = Product(name='A product')
+        test_name = ProductSelling(title='A product')
         self.assertEqual(str(test_name), 'A product')

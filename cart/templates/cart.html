@@ -1,0 +1,71 @@
+{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap_tags %}
+
+{% block content %}
+
+<h1>Shopping Cart</h1>
+
+<div class="shopping-cart">
+
+    <div class="column-labels">
+        <label class="product-image">Image</label>
+        <label class="product-details">Product</label>
+        <label class="product-price">Price</label>
+        <label class="product-quantity">Quantity</label>
+        <label class="product-removal">Remove</label>
+        <label class="product-line-price">Total</label>
+    </div>
+    
+    {% for item in cart_items %}
+
+    <div class="product">
+        <div class="product-image">
+            <img src="url('{{MEDIA_URL}}{{ item.dogs.image }}')">
+        </div>
+        <div class="product-details">
+            <div class="product-title">{{ item.dogs.name }}</div>
+            <p class="product-description"> {{ item.dogs.description }}</p>
+        </div>
+        <div class="product-price">{{ item.dogs.price }}</div>
+        
+        <form action="{% url 'adjust_cart' item.id %}" class="form-inline" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="exampleInputAmount" class="sr-only" >New Qty</label>
+                <div class="input-group">
+                    <div class="input-group-addon">
+                        <input name="quantity" type="number" min="0" max="999" class="form-control">
+                        <div class="input-group-addon">
+                            {{ item.quantity }}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button type="submit" class="btn btn-info">
+                <span ><i class="far fa-edit"></i>Amend</span>
+            </button>
+        </form>    
+        <div class="product-quantity">
+            <input type="number" value="2" min="1">
+        </div>
+        <div class="product-removal">
+            <button class="remove-product">
+                Remove
+            </button>
+        </div>
+        <div class="product-line-price">25.98</div>
+    </div>
+    
+    {% endfor %}
+
+    <div class="totals">
+        <div class="totals-item totals-item-total">
+            <label>Grand Total <i class="fas fa-euro-sign"></i></label>
+            <div class="totals-value" id="cart-total">90.57</div>
+        </div>
+    </div>
+
+    <a href="" class="btn btn-primary"><i class="fas fa-check-circle"></i>Checkout</a>
+
+</div>
+
+{% endblock %}

@@ -1,4 +1,10 @@
 {
+    "ace": {
+        "@useSoftTabs": false
+    },
+    "instance": {
+        "@automaticShutdown": "30"
+    },
     "language": {
         "tern_defs": {
             "json()": {

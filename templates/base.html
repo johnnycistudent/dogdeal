@@ -31,6 +31,12 @@
                 <li class="nav-item active">
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'dogs_for_sale' %}">Dogs for Sale</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Dogs Wanted</a>
+                </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'profile' %}">Profile</a>
@@ -46,11 +52,23 @@
                     <a class="nav-link" href="{% url 'registration' %}">Register</a>
                 </li>
                 {% endif %}
+                
             </ul>
+            <ul class="navbar-nav mr-3">
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'view_cart' %}">
+                        <i class="fas fa-shopping-cart"></i>Cart
+                        {% if product_count > 0 %}
+                        <label class="badge badge-warning">{{ product_count }}</label>
+                        {% endif %}
+                    </a>
+                </li>
+            </ul>    
             <form class="form-inline my-2 my-lg-0">
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
             </form>
+            
         </div>
     </nav>
     <div class="jumbotron jumbotron-fluid text-center" style="background-image: url('{% static 'media/jumbodog.jpg' %}')">
@@ -66,13 +84,30 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-12 text-center">
-                {% for message in messages %} {{ message }} {% endfor %}
+                <div class="alert alert-dismissible alert-info">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    {% for message in messages %} 
+                        {{ message }} 
+                    {% endfor %}
+                    
+                    
+                </div>
             </div>
-    {% endif %}
+                    {% endif %}
         </div>    
+        <div class="row">
+            <div class="col-12 text-center">
+                <form action="{% url 'search' %}" class="form-control" method="GET">
+                    <input type="text" name="q"/>
+                    <button class="btn btn-info" type="submit">Search</button>
+                    
+                </form>
+            </div>
+        </div>
+    </div>    
             {% block content %}{% endblock %}
         
-    </div>
+    
     
     <footer class="container text-center">
         <div="row">
