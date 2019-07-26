@@ -7,34 +7,36 @@
 <div class="container-fluid">
     <div class="row">
 
-        {% for dogs in dogs_for_sale %}
+        
         <div class="col-12">
             <table class="table table-image">
                 <thead>
                     <tr>
                         <th scope="col">Title</th>
-                        <th scope="col">Image</th>
+                        <th class="small-hidden" scope="col">Image</th>
                         <th scope="col">Description</th>
-                        <th scope="col">Breed</th>
-                        <th scope="col">Location</th>
+                        <th class="small-hidden" scope="col">Breed</th>
+                        <th class="small-hidden" scope="col">Location</th>
                         <th scope="col">View Ad</th>
                     </tr>
                 </thead>
                 <tbody>
+                    {% for dogs in dogs_for_sale %}
                     <tr>
                         <th scope="row">{{ dogs.title }}</th>
-                        <td class="w-25">
-                            <img src="url('{{ MEDIA_URL }}{{ dogs.image }}')" class="img-fluid img-thumbnail" alt="{{ dogs.title }}">
+                        <td class="thumbnail small-hidden" style="background-image: url('{{ MEDIA_URL }}{{ dogs.image }}')" class="img-fluid img-thumbnail" alt="{{ dogs.title }}">
+                            
                         </td>
                         <td>{{ dogs.title }}</td>
-                        <td>{{ dogs.breed }}</td>
-                        <td>{{ dogs.location }}</td>
+                        <td class="small-hidden">{{ dogs.breed }}</td>
+                        <td class="small-hidden">{{ dogs.location }}</td>
                         <td><a role="button" class="btn btn-info" href="{% url 'view_dog_ad' dogs.id %}">View Ad</a></td>
                     </tr>
+                    {% endfor %}
                 </tbody>
             </table>
         </div>
-        {% endfor %}
+        
     </div>
 </div>
 

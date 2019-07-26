@@ -16,11 +16,47 @@ body {
 
 
 h4 {
-  margin: 2rem 0rem 1rem;
+    margin: 2rem 0rem 1rem;
 }
 
 
 .card {
-    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.30), 
-                0 4px 5px rgba(0, 0, 0, .1);
+    box-shadow: 0 10px 8px rgba(0, 0, 0, 0.30),
+    0 4px 5px rgba(0, 0, 0, .1);
+}
+
+.dog-image {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    margin: 20px;
+    height: 300px;
+}
+
+.thumbnail {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.product-img {
+    background-size: contain;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+}
+
+
+
+.main-section{
+	
+	margin-top:100px;
+}
+
+@media screen and (min-width: 100px) and (max-width: 768px) {
+  .small-hidden { display: none; }  
+}
+
+.table td {
+    vertical-align: middle;
 }
