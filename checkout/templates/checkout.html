@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+{% load static from staticfiles %}
+{% load bootstrap_tags %}
+{% load mathfilters %}
+
+{% block head_js %}
+<script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+<script type="text/javascript">
+    //<![CDATA[
+        Stripe.publishableKey = '{{ publishable }}';
+    //]]>
+</script>
+<script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+	<div class="row">
+		
+		
+		<div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+			
+			<form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
+				<legend>Payment Details</legend>
+				<div id="credit-card-errors" style="display:none">
+					<div class="alert-message block-message-error" id="stripe-error-message"></div>
+				</div>
+				
+				<div class="form-group ">
+					{{ order_form| as_bootstrap }}
+				</div>
+				<div class="margin-b-30">
+					{{ payment_form| as_bootstrap }}
+				</div>
+				<div class="row">
+	                <div class="text-center">
+	                    <h3>Order Summary</h3>
+	                </div>
+	                </span>
+	                <table class="table table-hover">
+	                    <thead>
+	                        <tr>
+	                            <th>Dog</th>
+	                            <th>Quantity</th>
+	                            <th class="text-center">Price (€)</th>
+	                            <th class="text-center">Total (€)</th>
+	                        </tr>
+	                    </thead>
+	                    <tbody>
+	                    	{% for item in cart_items %}
+	                        <tr>
+	                            <td class="col-md-9"><em>{{ item.product.title }}</em></h4></td>
+	                            <td class="col-md-1" style="text-align: center"> {{ item.quantity }} </td>
+	                            <td class="col-md-1 text-center">{{ item.product.price }}</td>
+	                            <td class="col-md-1 text-center">{{item.product.price|mul:item.quantity }}</td>
+	                        </tr>
+	                        {% endfor %}
+	                        <tr>
+	                            <td>  </td>
+	                            <td>  </td>
+	                            <td class="text-right"><h4><strong>Total(€): </strong></h4></td>
+	                            <td class="text-center text-danger"><h4><strong>{{ total }}</strong></h4></td>
+	                        </tr>
+	                    </tbody>
+	                </table>
+              		<div class="form-group col-6">
+						<input class="btn btn-info btn-lg btn-block" id="submit_payment_btn" type="submit" name="commit" value="Pay Now"/>
+					</div>
+            	</div>
+				{% csrf_token %}
+				<div class="row">
+					
+				</div>
+			</form>
+			
+		</div>
+	</div>
+	
+</div>
+
+{% endblock %}
