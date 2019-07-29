@@ -21,7 +21,7 @@
 
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="logo navbar-brand" href="#">DogDeal</a>
+        <a class="logo navbar-brand" href="{% url 'dogs_for_sale' %}">DogDeal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -35,7 +35,7 @@
                     <a class="nav-link" href="{% url 'dogs_for_sale' %}">Dogs for Sale</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Dogs Wanted</a>
+                    <a class="nav-link" href="{% url 'wanted_dogs' %}">Dogs Wanted</a>
                 </li>
                 {% if user.is_authenticated %}
                 <li class="nav-item">
@@ -94,26 +94,17 @@
                 </div>
             </div>
                     {% endif %}
-        </div>    
-        <!--<div class="row">-->
-        <!--    <div class="col-12 text-center">-->
-        <!--        <form action="{% url 'search' %}" class="form-control" method="GET">-->
-        <!--            <input type="text" name="q"/>-->
-        <!--            <button class="btn btn-info" type="submit">Search</button>-->
-                    
-        <!--        </form>-->
-        <!--    </div>-->
-            
-        <!--</div>-->
+        </div>
+        
     </div>    
-            {% block content %}{% endblock %}
+{% block content %}{% endblock %}
         
     
     
     <footer class="container text-center">
         <div="row">
             <hr>
-            <p>Full Stack Development Project
+            <p>Full Stack Development Project <a class="text-secondary" href="https://github.com/johnnycistudent"><i class="fab fa-github"></i></a>
             <br><span style="font-style:italic ">JOC © 2019</span>
             </p>
         </div>

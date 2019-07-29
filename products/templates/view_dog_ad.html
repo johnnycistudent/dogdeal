@@ -6,7 +6,7 @@
 				<div class="row">
 					<!--<div class="col-12 ">-->
 						<aside class="col-sm-12">
-							<div class="dog-image" style="background-image: url('{{ MEDIA_URL }}{{ ad.image  }}')"> <a href="#"></a></div>
+							<div class="dog-image" style="background-image: url('{{ MEDIA_URL }}{{ ad.image  }}')"></div>
 						</aside>
 						<aside class="col-sm-12">
 							<article class="card-body p-5">
@@ -71,11 +71,13 @@
 
 								<form method="POST" action="{% url 'add_to_cart' ad.id %}">
 									{% csrf_token %}
-									<div class="input-group">
-										<input name="quantity" type="number" min="1" max="999" style="width:50%" class="form-control param param-inline" placeholder="Quantity" required>
-										<span class="input-group-btn">
-											<button type="submit" class="btn btn-lg btn-outline-info text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </button>
-										</span>
+									<div class="form-row">
+										<div class="input-group col-5" >
+											<input name="quantity" type="number" min="1" max="999" style="width:50%" class="form-control param param-inline" placeholder="Quantity" required>
+										</div>
+										<div class="input-group-btn col-5" >
+											<button type="submit" class="btn btn-outline-info text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </button>
+										</div>
 									</div>
 								</form>
 

@@ -1,0 +1,14 @@
+{% extends 'base.html' %} {% block content %}{% load bootstrap_tags %}
+<div class="container-fluid">			
+		<div class="row">
+			<div class="col-12 offset-sm-1 col-sm-10 offset-lg-3 col-lg-6">
+				<form method="POST" class="comment-form">
+		            {% csrf_token %}
+		            {{ form | as_bootstrap }}
+	    			<button type="submit"  class="btn btn-warning">Add a Comment</button>
+	    			<button type="button" class="btn btn-primary" onclick="history.go(-1)">Cancel</button>
+				</form>
+			</div>
+		</div>	
+</div>			
+{% endblock %}

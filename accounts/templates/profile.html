@@ -2,10 +2,31 @@
 
 {% block page_title %}{{ user }}'s Profile{% endblock %}
 
-{% block page_heading %}{{ user }}'s Profile{% endblock %}
+{% block page_heading %}{{ user|title }}'s Profile{% endblock %}
 
 {% block content%}
 
-<p>{{ profile.email }}</p>
+<div class="container-fluid">
+	<div class="row text-center">
+		<div class="col-10 offset-1">
+			<p><strong>Your registered email:</strong> {{ profile.email }}</p>
+			<p><strong>Last Log In: </strong> {{user.last_login}}</p>
+		
+		
+		<div>
+			{% for user in all_users %}
+			<p>{{ user }}</p>
+			{% endfor %}
+		</div>
+		
+		
+		
+		
+		</div>
+		
+	</div>
+	
+</div>
+
 
 {% endblock %}

@@ -50,8 +50,28 @@ h4 {
 
 .main-section{
 	
-	margin-top:100px;
+	margin-top:20px;
 }
+
+
+/*--- Comments ----*/
+
+.comments-card {
+    margin-top: 20px;
+}
+
+
+
+/*------- Media Queries --------*/
+
+
+@media (max-width: 992px){
+    .jumbotron {
+        height: 300px;
+    }
+}
+
+
 
 @media screen and (min-width: 100px) and (max-width: 768px) {
   .small-hidden { display: none; }  
@@ -59,4 +79,11 @@ h4 {
 
 .table td {
     vertical-align: middle;
+}
+
+@media screen and (min-width: 100px) and (max-width: 400px) {
+      .hide-xs { 
+        display: none; 
+        padding: 0px;  
+    }
 }

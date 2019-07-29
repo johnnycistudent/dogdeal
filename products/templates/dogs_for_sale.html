@@ -6,9 +6,23 @@
 {% block content %} 
 <div class="container-fluid">
     <div class="row">
+        <div class="col-8 offset-2 col-lg-6 offset-lg-3 mb-3">
+            <form action="{% url 'search' %}" method="get">
+            <div class="input-group search-wrapper">
+                
+                <input class="form-control border-info py-2" name="q" type="text" placeholder="Search">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-info" type="submit">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </div>
+                </form>
+            </div>
+        </div>
+        
 
         
-        <div class="col-12">
+        <div class="col-12 col-lg-10 offset-lg-1">
             <table class="table table-image">
                 <thead>
                     <tr>
@@ -24,10 +38,10 @@
                     {% for dogs in dogs_for_sale %}
                     <tr>
                         <th scope="row">{{ dogs.title }}</th>
-                        <td class="thumbnail small-hidden" style="background-image: url('{{ MEDIA_URL }}{{ dogs.image }}')" class="img-fluid img-thumbnail" alt="{{ dogs.title }}">
+                        <td class="thumbnail small-hidden" class="img-fluid img-thumbnail" alt="{{ dogs.title }}">
                             
                         </td>
-                        <td>{{ dogs.title }}</td>
+                        <td>{{ dogs.description }}</td>
                         <td class="small-hidden">{{ dogs.breed }}</td>
                         <td class="small-hidden">{{ dogs.location }}</td>
                         <td><a role="button" class="btn btn-info" href="{% url 'view_dog_ad' dogs.id %}">View Ad</a></td>
@@ -38,6 +52,41 @@
         </div>
         
     </div>
+    
+    <!-- Pagination Controls -->
+    
+    <div class="row d-flex justify-content-center">
+        <div>
+            {% if users.has_other_pages %}
+            <ul class="pagination pagination-sm">
+                <li class="page-item">
+                    {% if dogs_for_sale.has_previous %}
+                    <a class="page-link" href="?page={{ dogs_for_sale.previous_page_number }}">&laquo;</a>
+                    {% endif %}
+                </li>
+                {% for i in dogs_for_sale.paginator.page_range %}
+                {% if dogs_for_sale.number == i %}
+                <li class="page-item active">
+                  <a class="page-link" href="#">{{ i }} </a>
+                </li>
+                {% else %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ i }}">{{ i }}</a>
+                </li>
+                {% endif %}
+                {% endfor %}
+                <li class="page-item">
+                    {% if dogs_for_sale.has_next %}
+                    <a class="page-link" href="?page={{ dogs_for_sale.next_page_number }}">&raquo;</a>
+                    {% endif %}
+                </li>
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+    
+    <!-- /Pagination Controls -->
+    
 </div>
 
 {% endblock %}

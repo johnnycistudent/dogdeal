@@ -68,4 +68,9 @@ def registration(request):
 def user_profile(request):
     """User's Profile Page"""
     user = User.objects.get(email=request.user.email)
-    return render(request, 'profile.html', {"profile": user})
+    
+    if user.is_superuser:
+        all_users = User.objects.all()
+    
+    
+    return render(request, 'profile.html', {"profile": user, 'all_users': all_users})

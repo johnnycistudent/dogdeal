@@ -1,0 +1,54 @@
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
+
+{% block page_heading %}Search Results{% endblock %}
+{% block content %} 
+<div class="container-fluid">
+    <div class="row">
+        
+    {% if query %}    
+        
+    {% for result in query %}
+        
+        <div class="col-12 col-lg-10 offset-lg-1">
+            <table class="table table-image">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th class="small-hidden" scope="col">Image</th>
+                        <th scope="col">Description</th>
+                        <th class="small-hidden" scope="col">Breed</th>
+                        <th class="small-hidden" scope="col">Location</th>
+                        <th scope="col">View Ad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                   
+                    <tr>
+                        <th scope="row">{{ result.title }}</th>
+                        <td class="thumbnail small-hidden" style="background-image: url('{{ MEDIA_URL }}{{ result.image }}')" class="img-fluid img-thumbnail" alt="{{ result.title }}">
+                            
+                        </td>
+                        <td>{{ result.description }}</td>
+                        <td class="small-hidden">{{ result.breed }}</td>
+                        <td class="small-hidden">{{ result.location }}</td>
+                        <td><a role="button" class="btn btn-info" href="{% url 'view_dog_ad' result.id %}">View Ad</a></td>
+                    </tr>
+                    {% endfor %} 
+                </tbody>
+            </table>
+        </div>
+       
+    
+    {% else %}
+    
+    <div class="col-12">
+        <p class="text-center"><em><strong>There are no results for your query! Try searching another query or browse all ads <a class="text-warning" href="{% url 'dogs_for_sale' %}">here</a></strong></em></p>
+    </div>
+    
+    {% endif %}
+    </div>
+</div>
+
+{% endblock %}

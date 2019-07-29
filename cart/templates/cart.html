@@ -1,33 +1,30 @@
-{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap_tags %}
-
-{% block page_heading %}Shopping Cart{% endblock %}
-
-{% block content %}
+{% extends 'base.html' %} {% load static from staticfiles %} {% load bootstrap_tags %} {% block page_heading %}Shopping Cart{% endblock %} {% block content %}
 
 
 <div class="container-fluid main-section">
-		<div class="row">
-			<div class="col-lg-12 pl-3 pt-3">
-				
+	<div class="row">
+		<!--<div class="col-12">-->
+			<div class="col-lg-10 offset-lg-1">
+
 				{% if total != 0 %}
-				
-				
-				
-				
+
+
+
+
 				<table class="table table-hover border bg-white">
-				    <thead>
-				      	<tr>
-					        <th>Dog</th>
-					        <th>Price</th>
-					        <th style="width:10%;">Quantity</th>
-				      	</tr>
-				    </thead>
-				    
-				    <tbody>
-				      	<tr>
-				      		{% for item in cart_items %}
-					        <td>
-					        	<div class="row">
+					<thead>
+						<tr>
+							<th>Dog</th>
+							<th>Price</th>
+							<th style="width:10%;">Quantity</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							{% for item in cart_items %}
+							<td>
+								<div class="row">
 									<div class="col-lg-2 product-img" style="background-image: url('{{ MEDIA_URL }}{{ item.product.image  }}')">
 									</div>
 									<div class="col-lg-10">
@@ -35,82 +32,82 @@
 										<p>{{ item.product.description }}</p>
 									</div>
 								</div>
-					        </td>
-					        <td><i class="fas fa-euro-sign"></i> {{ item.product.price }}</td>
-					        <td data-th="Quantity">
-					        	<div class="quantity-group">
-						        	<form method="POST" class="form-inline" action="{% url 'adjust_cart' item.id %}">
-										{% csrf_token %}
-										<div class="form-group">
-	                            				<input name="quantity" type="number" min="0" max="999" value="{{item.quantity}}" class="form-control text-center">
-	                            				
-	                       					</div>
-	                    				</div>
-	                    				<button type="submit" class="btn btn-warning text-white">Amend <i class="fas fa-sync-alt"></i></button>
-									</form>
+							</td>
+							<td><i class="fas fa-euro-sign"></i> {{ item.product.price }}</td>
+							<td data-th="Quantity">
+								<div class="form-inline mr-1">
 									<form method="POST" class="form-inline" action="{% url 'adjust_cart' item.id %}">
 										{% csrf_token %}
-										<div class="form-group">
-										<input name="quantity" type="number" value="0" style="display:none;">
-	            						<button type="submit" class="btn btn-primary text-white ">
-	                						Remove <i class="far fa-trash-alt"></i>
-	                					</button>
-	                					</div>
-									</form>	
+										<div class="form-group mr-1">
+											<input name="quantity" type="number" min="0" max="999" value="{{item.quantity}}" class="text-center">
+
+										</div>
+										<div class="form-group mr-1">
+											<button type="submit" class="btn btn-warning btn-sm mr-1">
+	                       						Amend <i class="fas fa-sync-alt"></i>
+	                       					</button>
+										</div>
+
+									</form>
+
+									<form method="POST" class="form-inline mr-1" action="{% url 'adjust_cart' item.id %}">
+										{% csrf_token %}
+										<div class="form-inline mr-2">
+											<input name="quantity" type="number" value="0" style="display:none;">
+											<button type="submit" class="btn btn-primary btn-sm mr-2">
+			                					Remove <i class="far fa-trash-alt"></i>
+			                				</button>
+										</div>
+									</form>
 								</div>
 							</td>
-							
-							
-				      	</tr>
-				      	{% endfor %}
-				    </tbody>
-				    
-				    
+						</tr>
+						{% endfor %}
+					</tbody>
+
+
 				</table>
 			</div>
-			
-			<div class="col-lg-12 pl-3 pt-3">
-				<table class="table table-hover border bg-white">
-					    <thead>
-					      	<tr>
 
-					      	</tr>
-					    </thead>
-						<tbody>
-							<tr>
-								<td>
-									
-									<a href="{% url 'dogs_for_sale' %}" class="btn btn-warning text-white"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
-								</td>	
-								<td colspan="2" class="hidden-xs"></td>
-								<td colspan="2" class="hidden-xs"></td>
-								<td class="hidden-xs text-center" style="width:10%;"><strong>Total : {{ total }}</strong></td>
-								<td><a href="{% url 'checkout' %}" class="btn btn-success">Checkout <i class="fa fa-angle-right"></i></a></td>
-							</tr>
-						</tbody>
+			<div class="col-lg-10 offset-lg-1">
+				<table class="table table-hover border bg-white">
+					<thead>
+						<tr>
+
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>
+
+								<a href="{% url 'dogs_for_sale' %}" class="btn btn-warning text-white"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+							</td>
+							<td class="hide-xs"></td>
+							<td class="hide-xs"></td>
+							<td class="hidden-xs text-center" style="width:10%;"><strong>Total : {{ total }}</strong></td>
+							<td><a href="{% url 'checkout' %}" class="btn btn-success">Checkout <i class="fa fa-angle-right"></i></a></td>
+						</tr>
+					</tbody>
 				</table>
-			</div>	
-			
+			</div>
+
 			{% else %}
-			
+
 			<div class="col-12 text-center">
-			
-				<h2>You currently have no items in your cart <i class="fas fa-shopping-cart"></i></h2>	
-				
+
+				<h2>You currently have no items in your cart <i class="fas fa-shopping-cart"></i></h2>
+
 				<h5>Browse more of our doggies below </h5>
 				<a class="btn btn-warning btn-lg text-white" href="{% url 'dogs_for_sale' %}">Dogs for Sale <i class="fas fa-dog"></i></a>
-				
-			
+
+
 			</div>
 
-			
-			{% endif %}	
-				
-				
-				
-			
-		</div>
+
+			{% endif %}
+
 	</div>
+</div>
 
 
 {% endblock %}

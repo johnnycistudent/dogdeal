@@ -1,0 +1,43 @@
+{% extends 'base.html' %} 
+
+{% load staticfiles %} 
+
+{% block page_heading %}Wanted Requests{% endblock %}
+{% block content %} 
+<div class="container-fluid">
+    <div class="row">
+
+        
+        <div class="col-12 col-lg-10 offset-lg-1">
+            <table class="table table-image">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th class="small-hidden" scope="col"></th>
+                        <th scope="col">Description</th>
+                        <th class="small-hidden" scope="col">Breed</th>
+                        <th class="small-hidden" scope="col">Location</th>
+                        <th scope="col">View Ad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for dogs in wanted_dogs %}
+                    <tr>
+                        <th scope="row">{{ dogs.title }}</th>
+                        <td class="thumbnail small-hidden" style="background-image: url('{{ MEDIA_URL }}{{ dogs.image }}')" class="img-fluid img-thumbnail" alt="{{ dogs.title }}">
+                            
+                        </td>
+                        <td>{{ dogs.description }}</td>
+                        <td class="small-hidden">{{ dogs.breed }}</td>
+                        <td class="small-hidden">{{ dogs.location }}</td>
+                        <td><a role="button" class="btn btn-info" href="{% url 'wanted_dog_ad' dogs.id %}">View Ad</a></td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+</div>
+
+{% endblock %}

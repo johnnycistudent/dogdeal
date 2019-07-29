@@ -30,7 +30,7 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', all_dogs_selling, name='index'),
     url(r'^accounts/', include(urls_accounts)),
-    url(r'^dogs_for_sale/', include(urls_products)),
+    url(r'^ads/', include(urls_products)),
     url(r'^cart/', include(urls_cart)),
     url(r'^checkout/', include(urls_checkout)),
     url(r'^search/', include(urls_search)),

@@ -1,0 +1,98 @@
+{% extends 'base.html' %} {% block content %} {% load static from staticfiles %}
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-12 offset-sm-1 col-sm-10 offset-lg-3 col-lg-6">
+			<div class="card ">
+				<div class="row">
+					<aside class="col-sm-12">
+						<div class="dog-image" {% if wanted_ad.image.is_valid %} style="background-image: url('{{ MEDIA_URL }}{{ wanted_ad.image  }}')" {% else %} style="display: none" {% endif %}> <a href="#"></a></div>
+					</aside>
+					<aside class="col-sm-12">
+						<article class="card-body p-5">
+							<h3 class="title mb-3">{{ wanted_ad.title }}</h3>
+
+							<p class="price-detail-wrap">
+								<span class="price h3 text-warning"> 
+									<span class="currency">EUR €</span><span class="num">{{ wanted_ad.price }}</span>
+								</span>
+							</p>
+							<dl class="item-property">
+								<dt>Description</dt>
+								<dd>
+									<p>{{ wanted_ad.description }}</p>
+								</dd>
+							</dl>
+							<dl class="param param-feature">
+								<dt>Breed</dt>
+								<dd>{{ wanted_ad.breed }}</dd>
+							</dl>
+							<dl class="param param-feature">
+								<dt>Color</dt>
+								<dd>{{ wanted_ad.color }}</dd>
+							</dl>
+							<dl class="param param-feature">
+								<dt>Location</dt>
+								<dd>{{ wanted_ad.location }}</dd>
+							</dl>
+							<dl class="param param-feature">
+								<dt>Status</dt>
+								<dd>{{ wanted_ad.status }}</dd>
+							</dl>
+							<hr>
+							<div class="row">
+								<div class="col-sm-5">
+									<dl class="param param-inline">
+										<dt>Ad Views: </dt>
+											<dd>
+												{{ wanted_ad.views }}
+											</dd>
+									</dl>
+								</div>
+								<div class="col-sm-7">
+									<dl class="param param-inline">
+										<dt>Posted by: </dt>
+											<dd>
+												{{ wanted_ad.posted_by|title }}	
+											</dd>
+									</dl>
+								</div>
+							</div>
+							<hr>
+						</article>
+					</aside>
+				</div>
+			</div>
+		</div>
+		
+		<div class="col-12 offset-sm-1 col-sm-10 offset-lg-3 col-lg-6">
+			
+			<h3 class="pt-3">Comments:</h3>
+			
+			
+				
+				
+    			<a href="{% url 'add_comment' wanted_ad.id %}"  role="button" class="btn btn-warning">Add a Comment</a>
+			
+			
+			
+			{% for comment in comments %}
+			<div class="card bg-secondary mb-3 comments-card">
+  				<div class="card-header">Posted by   
+  					<strong>{{ comment.author|title }}</strong> on: 
+  					<span class="float-right">
+  						<a {% if user.is_superuser %} styke="color: #000" {% else %} style="display: none" {% endif %} href="{% url 'delete_comment' comment.id %}">
+  							<i class="fas fa-trash-alt"></i>
+  						</a>
+  					</span>
+  					<br>
+  					{{ comment.created_on }}
+  				</div>
+  				<div class="card-body">
+    				<p class="card-text">{{ comment }}</p>
+  				</div>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}
