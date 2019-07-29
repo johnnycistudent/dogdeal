@@ -77,6 +77,24 @@ def view_wanted_dog_ad(request, pk):
                 'comments': comments,
                 })    
                 
+@login_required()
+def delete_dog_wanted_ad(request, pk):
+    """
+    Allows Superusers to delete a dog for sale ad
+    """
+    user = request.user
+    # comments = Comment.objects.filter(product=pk)
+    
+    if user.is_superuser:
+        wanted_ad_to_delete = get_object_or_404(ProductWanted, pk=pk)
+        wanted_ad_to_delete.delete()
+        # comments = get_object_or_404(Comment, pk=pk)
+        
+    
+    messages.success(request, "Wanted Ad successfully deleted")
+    return redirect('wanted_dogs')                 
+                
+                
 
 @login_required()             
 def add_comment(request, pk):                
