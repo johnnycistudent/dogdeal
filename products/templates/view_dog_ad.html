@@ -1,4 +1,7 @@
 {% extends 'base.html' %} {% block content %} {% load static from staticfiles %}{% load bootstrap_tags %}
+
+{% block page_heading %}{{ wanted_ad.title|title }}{% endblock %}
+
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12 offset-sm-1 col-sm-10 offset-lg-3 col-lg-6">
@@ -6,7 +9,7 @@
 				<div class="row">
 					<!--<div class="col-12 ">-->
 						<aside class="col-sm-12">
-							<div class="dog-image" {% if wanted_ad.image.is_valid %} style="background-image: url('{{ MEDIA_URL }}{{ ad.image  }}')" {% else %} style="display: none" {% endif %}></div>
+							<div class="dog-image" {% if wanted_ad.image.is_valid %} style="background-image: url('{{ MEDIA_URL }}{{ wanted_ad.image  }}')" {% else %} style="display: none" {% endif %}></div>
 						</aside>
 						<aside class="col-sm-12">
 							<article class="card-body p-5">
@@ -65,9 +68,9 @@
 									<!-- col.// -->
 									<div class="col-sm-7">
 										<dl class="param param-inline">
-											<dt>UpVotes: </dt>
+											<dt>Published on: </dt>
 												<dd>
-													{{ ad.upvotes }}	
+													{{ ad.published }}	
 												</dd>
 										</dl>
 										<!-- item-property .// -->
@@ -84,8 +87,14 @@
 											<input name="quantity" type="number" min="1" max="999" style="width:50%" class="form-control param param-inline" placeholder="Quantity" required>
 										</div>
 										<div class="input-group-btn col-5" >
-											<button type="submit" class="btn btn-outline-info text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </button>
+											{% if user.is_authenticated %}
+											<button type="submit" class="btn btn-info text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </button>
+											{% else %}
+											<a role="button" class="btn btn-info disabled text-white" > <i class="fas fa-shopping-cart"></i> Add to cart </a>
+											
 										</div>
+										<p><small>You must be logged in to make purchases!</small></p>
+											{% endif %}
 									</div>
 								</form>
 

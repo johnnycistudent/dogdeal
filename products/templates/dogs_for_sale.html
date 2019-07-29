@@ -85,6 +85,15 @@
         </div>
     </div>
     
+    {% if user.is_superuser %}
+    <div class="col-12 col-lg-10 offset-lg-1">
+    {% else %}
+    <div class="col-12 col-lg-10 offset-lg-1" style="display: none"style="display: none">
+    {% endif %}
+        
+        <a href="{% url 'add_dog_sale_ad' %}"  role="button" class="btn btn-warning">Add an Ad</a>
+    </div>
+    
     <!-- /Pagination Controls -->
     
 </div>

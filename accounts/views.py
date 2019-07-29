@@ -65,12 +65,14 @@ def registration(request):
         registration_form = UserRegistrationForm
     return render(request, 'registration.html', {"registration_form": registration_form})
     
+@login_required  
 def user_profile(request):
     """User's Profile Page"""
     user = User.objects.get(email=request.user.email)
     
     if user.is_superuser:
         all_users = User.objects.all()
+        return render(request, 'profile.html', {"profile": user, 'all_users': all_users})
+    else:
+        return render(request, 'profile.html', {"profile": user})
     
-    
-    return render(request, 'profile.html', {"profile": user, 'all_users': all_users})

@@ -5,10 +5,11 @@ from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import ProductSelling, ProductWanted, Comment
-from .forms import AddCommentForm
+from .forms import AddSaleAdForm, AddWantedAdForm, AddCommentForm
 
 
-# Create your views here.
+# DOGS FOR SALE VIEWS #
+
 def all_dogs_selling(request):
     """
     Show all dogs for sale.
@@ -26,16 +27,11 @@ def all_dogs_selling(request):
         
     return render(request, "dogs_for_sale.html", {"dogs_for_sale": dogs_for_sale})
     
-def wanted_dogs(request):
-    """
-    Show wanted requests.
-    """
-    wanted_dogs = ProductWanted.objects.all()
-    return render(request, "wanted_dogs.html", {"wanted_dogs": wanted_dogs})    
+   
     
 def view_dog_ad(request, pk):
     """
-    Show single dog for sale advertisement
+    Show single Dog-for-Sale advertisement
     """
     
     ad = get_object_or_404(ProductSelling, pk=pk)
@@ -43,12 +39,33 @@ def view_dog_ad(request, pk):
     ad.save()
     
     return render(request, "view_dog_ad.html", {"ad": ad })
+
+@login_required()    
+def add_dog_sale_ad(request):
+    """
+    Allows Superusers to Add or Edit Dog-for-Sale Ad through a form
+    """
+    user = request.user
     
+    if user.is_superuser:
+        if request.method == "POST":
+            form = AddSaleAdForm(request.POST)
+            if form.is_valid():
+                ad = form.save(commit=False)
+                ad.author = request.user
+                ad.save()
+                return redirect('view_dog_ad', pk=ad.pk)
+            else:
+                messages.error(request, "Could not add Request at this time")
+                return redirect('dogs_for_sale')
+        else:
+            form = AddSaleAdForm()
+    return render(request, "add_dog_sale.html", {"form": form})    
 
 @login_required()
 def delete_dog_sale_ad(request, pk):
     """
-    Allows Superusers to delete a dog for sale ad
+    Allows Superusers to delete a Dog-for-Sale ad
     """
     user = request.user
     
@@ -62,6 +79,16 @@ def delete_dog_sale_ad(request, pk):
         
     
     
+# WANTED DOGS VIEWS #    
+
+def wanted_dogs(request):
+    """
+    Show wanted requests.
+    """
+    wanted_dogs = ProductWanted.objects.all()
+    return render(request, "wanted_dogs.html", {"wanted_dogs": wanted_dogs}) 
+
+
 def view_wanted_dog_ad(request, pk):
     """
     Show single dog advertisement
@@ -80,21 +107,41 @@ def view_wanted_dog_ad(request, pk):
 @login_required()
 def delete_dog_wanted_ad(request, pk):
     """
-    Allows Superusers to delete a dog for sale ad
+    Allows Superusers to delete a Dog-for-Sale ad
     """
     user = request.user
-    # comments = Comment.objects.filter(product=pk)
-    
+
     if user.is_superuser:
         wanted_ad_to_delete = get_object_or_404(ProductWanted, pk=pk)
         wanted_ad_to_delete.delete()
-        # comments = get_object_or_404(Comment, pk=pk)
-        
+
     
     messages.success(request, "Wanted Ad successfully deleted")
     return redirect('wanted_dogs')                 
+    
+@login_required()    
+def add_dog_wanted_ad(request):
+    """
+    Allows users to Add or Edit Dog Wanted Ad through a form
+    """
+    
+    
+    if request.method == "POST":
+        form = AddWantedAdForm(request.POST)
+        if form.is_valid():
+            wanted_ad = form.save(commit=False)
+            wanted_ad.author = request.user
+            wanted_ad.save()
+            return redirect('wanted_dog_ad', pk=wanted_ad.pk)
+        else:
+            messages.error(request, "Could not add Request at this time")
+            return redirect('wanted_dogs')
+    else:
+        form = AddWantedAdForm()
+    return render(request, "add_dog_wanted.html", {"form": form})
+            
                 
-                
+# COMMENTS ON WANTED ADS #
 
 @login_required()             
 def add_comment(request, pk):                
