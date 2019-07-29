@@ -38,7 +38,7 @@
                     {% for dogs in dogs_for_sale %}
                     <tr>
                         <th scope="row">{{ dogs.title }}</th>
-                        <td class="thumbnail small-hidden" class="img-fluid img-thumbnail" alt="{{ dogs.title }}">
+                        <td class="thumbnail small-hidden" class="img-fluid img-thumbnail" style="background-image: url('{{ MEDIA_URL }}{{ dogs.image  }}')" alt="{{ dogs.title }}">
                             
                         </td>
                         <td>{{ dogs.description }}</td>

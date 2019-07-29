@@ -1,5 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
+from django.contrib.auth.models import User
+from django.contrib import auth, messages
 from django.contrib.auth.decorators import login_required
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import ProductSelling, ProductWanted, Comment
@@ -33,7 +35,7 @@ def wanted_dogs(request):
     
 def view_dog_ad(request, pk):
     """
-    Show single dog advertisement
+    Show single dog for sale advertisement
     """
     
     ad = get_object_or_404(ProductSelling, pk=pk)
@@ -41,6 +43,23 @@ def view_dog_ad(request, pk):
     ad.save()
     
     return render(request, "view_dog_ad.html", {"ad": ad })
+    
+
+@login_required()
+def delete_dog_sale_ad(request, pk):
+    """
+    Allows Superusers to delete a dog for sale ad
+    """
+    user = request.user
+    
+    if user.is_superuser:
+        ad_to_delete = get_object_or_404(ProductSelling, pk=pk)
+        ad_to_delete.delete()
+    
+    messages.success(request, "Ad successfully deleted")
+    return redirect('dogs_for_sale') 
+        
+        
     
     
 def view_wanted_dog_ad(request, pk):
