@@ -19,6 +19,7 @@ class ProductSelling(models.Model):
     gender = models.CharField(choices=GENDER_CHOICES, max_length=150, blank=True)
     image = models.ImageField(upload_to="images", blank=True, null=True)
     color = models.CharField(max_length=250)
+    dob = models.DateField()
     location = models.CharField(max_length=250)
     status = models.CharField(choices=STATUS, default=('Available', 'Available'), max_length=150, blank=False)
     sold_date = models.DateTimeField(
