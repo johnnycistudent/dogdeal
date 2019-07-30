@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/johnnycistudent/dogdeal.svg?branch=master)](https://travis-ci.org/johnnycistudent/dogdeal)
+
 # Full-Stack Frameworks Milestone Project
 
 Welcome to my Full-Stack Frameworks Milestone Project which I have entitled "DogDeal". The purpose of this project is to create an interactive database of recipes that allows users to create, read, update and delete (CRUD) recipes. Recipe Book can be used for general browsing by non-registered users or users can register and create an individual account to avail fully of all the features of the website.   
