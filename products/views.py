@@ -52,7 +52,6 @@ def add_dog_sale_ad(request):
             form = AddSaleAdForm(request.POST)
             if form.is_valid():
                 ad = form.save(commit=False)
-                ad.author = request.user
                 ad.save()
                 return redirect('view_dog_ad', pk=ad.pk)
             else:
@@ -130,16 +129,31 @@ def add_dog_wanted_ad(request):
         form = AddWantedAdForm(request.POST)
         if form.is_valid():
             wanted_ad = form.save(commit=False)
-            wanted_ad.author = request.user
+            wanted_ad.posted_by = request.user
             wanted_ad.save()
             return redirect('wanted_dog_ad', pk=wanted_ad.pk)
         else:
             messages.error(request, "Could not add Request at this time")
-            return redirect('wanted_dogs')
     else:
         form = AddWantedAdForm()
     return render(request, "add_dog_wanted.html", {"form": form})
             
+            
+@login_required()
+def edit_dog_wanted_ad(request, pk=None):
+    
+    
+    wanted_ad = get_object_or_404(ProductWanted, pk=pk)
+    
+    if request.user == wanted_ad.posted_by:
+        if request.method == "POST":
+            form = AddWantedAdForm(request.POST, instance=wanted_ad)
+            if form.is_valid():
+                form.save()
+                return redirect('wanted_dog_ad', pk=wanted_ad.pk)
+        else:
+            form = AddWantedAdForm(instance=wanted_ad)
+        return render(request, "add_dog_wanted.html", {"form": form})            
                 
 # COMMENTS ON WANTED ADS #
 

@@ -4,8 +4,7 @@ from .models import ProductSelling, ProductWanted, Comment
 
 class AddSaleAdForm(forms.ModelForm):
     
-    dob = forms.DateField(
-        widget=forms.DateInput(format=('%d-%m-%Y')))
+    dob = forms.DateField()
 
     
     class Meta:

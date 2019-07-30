@@ -15,11 +15,11 @@
 							<article class="card-body p-5">
 								<h3 class="title mb-3">{{ ad.title|title }}</h3>
 								<span class="float-right">
-  									<a  {% if user.is_superuser %} styke="color: #000" {% else %} style="display: none" {% endif %} href="">
+  									<a  {% if user.is_superuser %}  {% else %} style="display: none" {% endif %} href="">
   										<i class="fas fa-edit"></i>
   									</a>	
   									<br>
-  									<a role="button" {% if user.is_superuser %} style="color: #000" {% else %} style="display: none" {% endif %} data-toggle="modal" data-target="#deleteModal">
+  									<a role="button" {% if user.is_superuser %} {% else %} style="display: none" {% endif %} data-toggle="modal" data-target="#deleteModal">
   										<i class="fas fa-trash-alt"></i>
   									</a>
   								</span>
