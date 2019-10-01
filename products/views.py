@@ -59,7 +59,24 @@ def add_dog_sale_ad(request):
                 return redirect('dogs_for_sale')
         else:
             form = AddSaleAdForm()
-    return render(request, "add_dog_sale.html", {"form": form})    
+    return render(request, "add_dog_sale.html", {"form": form}) 
+    
+@login_required()
+def edit_dog_sale_ad(request, pk=None):
+    
+    
+    sale_ad = get_object_or_404(ProductSelling, pk=pk)
+    user = request.user
+    
+    if user.is_superuser:
+        if request.method == "POST":
+            form = AddSaleAdForm(request.POST, request.FILES, instance=sale_ad)
+            if form.is_valid():
+                form.save()
+                return redirect('view_dog_ad', pk=sale_ad.pk)
+        else:
+            form = AddSaleAdForm(instance=sale_ad)
+        return render(request, "add_dog_sale.html", {"form": form})     
 
 @login_required()
 def delete_dog_sale_ad(request, pk):
