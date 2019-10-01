@@ -4,7 +4,7 @@ from .models import ProductSelling, ProductWanted, Comment
 
 class AddSaleAdForm(forms.ModelForm):
     
-    dob = forms.DateField()
+    dob = forms.DateInput()
 
     
     class Meta:

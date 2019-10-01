@@ -57,7 +57,7 @@
     
     <div class="row d-flex justify-content-center">
         <div>
-            {% if users.has_other_pages %}
+            {% if dogs_for_sale.has_other_pages %}
             <ul class="pagination pagination-sm">
                 <li class="page-item">
                     {% if dogs_for_sale.has_previous %}
@@ -85,6 +85,10 @@
         </div>
     </div>
     
+    <!-- /Pagination Controls -->
+    
+    <!-- Add Another Advertisement button if user is an Admin -->
+    
     {% if user.is_superuser %}
     <div class="col-12 col-lg-10 offset-lg-1">
     {% else %}
@@ -94,7 +98,8 @@
         <a href="{% url 'add_dog_sale_ad' %}"  role="button" class="btn btn-warning">Add an Ad</a>
     </div>
     
-    <!-- /Pagination Controls -->
+    <!-- /Add Another Advertisement button if user is an Admin -->
+
     
 </div>
 

@@ -15,7 +15,7 @@ def all_dogs_selling(request):
     Show all dogs for sale.
     """
     dogs_for_sale = ProductSelling.objects.all().order_by('published')
-    paginator = Paginator(dogs_for_sale, 6)
+    paginator = Paginator(dogs_for_sale, 8)
     page = request.GET.get('page')
     try:
         dogs_for_sale = paginator.page(page)
@@ -49,7 +49,7 @@ def add_dog_sale_ad(request):
     
     if user.is_superuser:
         if request.method == "POST":
-            form = AddSaleAdForm(request.POST)
+            form = AddSaleAdForm(request.POST, request.FILES)
             if form.is_valid():
                 ad = form.save(commit=False)
                 ad.save()
