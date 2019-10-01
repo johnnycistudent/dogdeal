@@ -50,18 +50,30 @@ The information architecture of the...
 
 The information structure is laid out in the wireframes below:
 
- * [Mobile Wireframes](https://github.com/johnnycistudent/recipe-app/blob/master/static/images/Mobile%20Wireframes%20PDF.pdf)
- * [Desktop Wireframes](https://github.com/johnnycistudent/recipe-app/blob/master/static/images/Desktop%20Wireframes%20PDF.pdf)
+ * [Mobile Wireframes](https://github.com/johnnycistudent/dogdeal/blob/master/static/media/FSF%20Mobile%20wireframes.pdf)
+ * [Desktop Wireframes](https://github.com/johnnycistudent/dogdeal/blob/master/static/media/FSF%20Desktop%20wireframes.pdf)
 
-The five primary functions are represented in the Navbar links; Browse Recipes, My Recipes(User created recipes), My Favourites, Add a Recipe and the Log Out function. If the Admin is logged in, the Admin's reports area are represented in the Navbar links under "Admin Area". The only pages not represented in the Navbar links are the individual Recipes page (including edit recipe) and the view of another Users' recipes i.e. other Users' profile page. For the Admin, the deleted recipe view page is also not represented in the Navbar. Otherwise, all of the users' wants from the website should be easily clicked from the page they are currently on. The browse recipes page is linked in the Brand name at the top left of the page and is essentially the home page. 
+The primary functions are represented in the Navbar links; Dogs for Sale, Dogs Wanted, User Profile, the Shopping Cart, the search function and the Log Out function. 
 
-Non-registered Users can have only the Login, Register and Browse Recipes pages linked in the Navbar. 
+The Dogs for Sale display page is the home page as it is the main focus of the website and can be accessed by clicking on the site logo "DogDeal" in the top left hand corner of the navbar. Each ad is accessible through a button on the ad table display. The Admin can access the "Add an Ad" feature from this page to add more ads to the database.
+
+In an individual Dog for Sale page, the user can add any number of dogs to their shopping cart. The user can access their cart from the Navbar where they will see the number of "products" currently in their cart beside the cart icon in the Navbar. The user can then purchase their dogs from their cart from the checkout once the cart is accessed.
+
+The Dogs Wanted display page has the same format as the Dogs for sale display table, with a link to each ad linked within the table. The user can also add their own request through the "Request a Dog" button underneath the Dogs Wanted table. This button will bring the user to a form to add their own requests for dogs from the site.
+
+Once a "Request a Dog" ad is submitted, the user's ad is rendered and they or other users can comment on it below the ad. 
+
+The user can access their profile and log out of the site from the Navbar.
 
 #### Surface
 *What will the finished product look like?*
 *What colours, typography and design elements will be used?*
 
+I have previously used Bootswatch in other projects and find their themes to be very useful so I used their Simplex theme for this project. The mostly white background contrasts well with the red, blue and purple detailing such as on buttons and also allows the black text to stand out. 
 
+The banner/jumbotron image is a nice photo of a Jack Russell terrier's face with it's nose in the foreground and adds character to the site. 
+
+The font used on the logo for the site is Lato from Google fonts and the icons used through the site are from FontAwesome. 
 
 
 ## User Stories
@@ -83,8 +95,8 @@ Non-registered Users can have only the Login, Register and Browse Recipes pages 
 
 As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created and edited during the production of the site.  
 
- * [Mobile Wireframes]()
- * [Desktop Wireframes]()
+ * [Mobile Wireframes](https://github.com/johnnycistudent/dogdeal/blob/master/static/media/FSF%20Mobile%20wireframes.pdf)
+ * [Desktop Wireframes](https://github.com/johnnycistudent/dogdeal/blob/master/static/media/FSF%20Desktop%20wireframes.pdf)
 
 
 
