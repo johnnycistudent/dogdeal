@@ -2,37 +2,46 @@
 
 # Full-Stack Frameworks Milestone Project
 
-Welcome to my Full-Stack Frameworks Milestone Project which I have entitled "DogDeal". The purpose of this project is to create an interactive database of recipes that allows users to create, read, update and delete (CRUD) recipes. Recipe Book can be used for general browsing by non-registered users or users can register and create an individual account to avail fully of all the features of the website.   
+Welcome to my Full-Stack Frameworks Milestone Project which I have entitled "DogDeal". I have chosen to take a different approach then the one suggested in the brief and have built a website in which users can buy man's best friend - Dogs. The purpose of this project is to build an app that allows users to browse, purchase and request a dog or dogs of their choosing.
 
-DogDeal can be accessed here: []()
+DogDeal can be accessed here: [https://dog-deal-app.herokuapp.com](https://dog-deal-app.herokuapp.com)
+
+**Disclaimer - I realise dogs are not a commodity that should be traded or purchased like any other product but for the purposes of a college project they make a nice subject matter**
 
 ## UX
 
 
 #### Strategy
 *WHY does this site exist? And for who? (Target Audience) Detail goal of creator/user.*  
-The idea behind this website is ....
+The idea behind this website is to create a one stop shop for purchasing dogs online. It can also be used to request a breed of dog you can't find anywhere else. Simply place a Request a Dog ad onto the site and the admin can get back to you in the comments below the your ad.
 
 #### Scope
 *WHAT are we doing? Outline features and functions that help achieve goals from Strategy.*  
 
 
 ###### Functional requirements
-The most basic requirements for this project are....
+The most basic requirements for this project are to have advertisements that are attractive to the user and easy to read and to have a user registration system that allows users to sign in in order to make purchases or requests.
 
 
 The site should be responsive and work on all browsers.   
 
 ###### Content requirements
 The content requirements for the functions proposed above would be as follows:
-  -  
-  - 
-  - 
-  - 
+  - A table to display the advertisements, both sale and wanted
+  - A display page for each advertisement
+  - Add a Request a Dog form
+  - User search query box
+  - Registration/Login form
+  - User Profile 
+  - Log Out button
+  - User Password change
+  - Shopping Cart
+  - Checkout
 
 
 #### Structure
 *HOW - How much content is there, how is it organised, how is it prioritised, interaction design and architecture*  
+
 
 The information architecture of the...
 

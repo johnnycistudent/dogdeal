@@ -1,4 +1,7 @@
-{% extends 'base.html' %} {% block content %} {% load static from staticfiles %}
+{% extends 'base.html' %} {% load static from staticfiles %}
+
+{% block page_heading %}{{ wanted_ad.title|title }} request{% endblock %}
+{% block content %} 
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12 offset-sm-1 col-sm-10 offset-lg-3 col-lg-6">

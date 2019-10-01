@@ -1,6 +1,8 @@
-{% extends 'base.html' %} {% block content %} {% load static from staticfiles %}{% load bootstrap_tags %}
+{% extends 'base.html' %}  {% load static from staticfiles %}{% load bootstrap_tags %}
 
-{% block page_heading %}{{ wanted_ad.title|title }}{% endblock %}
+{% block page_heading %}{{ ad.title|title }}{% endblock %}
+
+{% block content %}
 
 <div class="container-fluid">
 	<div class="row">
@@ -9,7 +11,7 @@
 				<div class="row">
 					<!--<div class="col-12 ">-->
 						<aside class="col-sm-12">
-							<div class="dog-image" {% if wanted_ad.image.is_valid %} style="background-image: url('{{ MEDIA_URL }}{{ wanted_ad.image  }}')" {% else %} style="display: none" {% endif %}></div>
+							<div class="dog-image" {% if ad.image %} style="background-image: url('{{ MEDIA_URL }}{{ ad.image  }}')" {% else %} style="display: none" {% endif %}></div>
 						</aside>
 						<aside class="col-sm-12">
 							<article class="card-body p-5">
@@ -133,5 +135,7 @@
 		</div>
 	</div>
 </div>
+
+<!------- /Delete Ad Modal ------>
 
 {% endblock %}
