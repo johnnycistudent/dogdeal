@@ -9,13 +9,13 @@ class AddSaleAdForm(forms.ModelForm):
     
     class Meta:
         model = ProductSelling
-        fields = ('title', 'description', 'price', 'breed', 'gender', 'image', 'color', 'dob', 'location', 'status',)
+        fields = ('title', 'description', 'price', 'breed', 'gender', 'image', 'color', 'location', 'status',)
 
 class AddWantedAdForm(forms.ModelForm):
 
     class Meta:
         model = ProductWanted
-        fields = ('title', 'description', 'price', 'breed', 'gender', 'dob', 'color', 'location', 'status',)
+        fields = ('title', 'description', 'price', 'breed', 'gender', 'color', 'location', 'status',)
 
 class AddCommentForm(forms.ModelForm):
     
