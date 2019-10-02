@@ -8,8 +8,9 @@
     <div class="row">
         
     {% if query %}    
-        
-    {% for result in query %}
+        <div class="col-12 text-center">    
+            <p><em><strong>Your query returned {{ query.count }} {% if query.count == 1 %} result {% else %} results {% endif %} </em></strong></p>
+        </div>  
         
         <div class="col-12 col-lg-10 offset-lg-1">
             <table class="table table-image">
@@ -24,7 +25,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                   
+                   {% for result in query %}
                     <tr>
                         <th scope="row">{{ result.title }}</th>
                         <td class="thumbnail small-hidden" style="background-image: url('{{ MEDIA_URL }}{{ result.image }}')" class="img-fluid img-thumbnail" alt="{{ result.title }}">

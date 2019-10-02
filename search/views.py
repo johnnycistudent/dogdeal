@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from django.db.models import Q
-from products.models import ProductSelling, ProductWanted
+from products.models import ProductSelling
 
 # Create your views here.
 def do_search(request):
-	query = ProductSelling.objects.filter(description__icontains=request.GET['q'])
+	query = ProductSelling.objects.filter(title__icontains=request.GET['q'])
 	
 	# query = request.GET.get('query')
 	

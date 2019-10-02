@@ -30,6 +30,7 @@ The content requirements for the functions proposed above would be as follows:
   - A table to display the advertisements, both sale and wanted
   - A display page for each advertisement
   - Add a Request a Dog form
+  - User comments
   - User search query box
   - Registration/Login form
   - User Profile 
@@ -69,7 +70,7 @@ The user can access their profile and log out of the site from the Navbar.
 *What will the finished product look like?*
 *What colours, typography and design elements will be used?*
 
-I have previously used Bootswatch in other projects and find their themes to be very useful so I used their Simplex theme for this project. The mostly white background contrasts well with the red, blue and purple detailing such as on buttons and also allows the black text to stand out. 
+I have previously used Bootswatch in other projects and find their themes to be very useful so I used their Simplex theme for this project. The mostly white background contrasts well with the red, blue and purple detailing such as on button links and pagination and also allows the black text to stand out. 
 
 The banner/jumbotron image is a nice photo of a Jack Russell terrier's face with it's nose in the foreground and adds character to the site. 
 
@@ -78,11 +79,15 @@ The font used on the logo for the site is Lato from Google fonts and the icons u
 
 ## User Stories
 
-  **1.** As a non-registered user, I would like 
+  **1.** As a registered or non-registered user, I would like to browse/search through the site and see what dogs are available.
   
-  **2.** As a registered or non-registered user, I would like
+  **2.** I would like to create a user profile to be able to interact with the site further. 
   
-  **3.** 
+  **3.** I would like to be able to safely purchase dogs from the site over a secure connection.
+  
+  **4.** If I don't see a dog I want on the site, I would like to make a request to the site by using the "Request a Dog" feature.
+  
+  **5.** 
   
   **8.** As the Administrator of the site, I would like to be able to see the vital statistics of the site in one comprehensive and interactive list. i.e. how many recipes there currently are, how many users, how many deleted recipes etc. 
   
