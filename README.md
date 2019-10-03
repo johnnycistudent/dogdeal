@@ -87,12 +87,10 @@ The font used on the logo for the site is Lato from Google fonts and the icons u
   
   **4.** If I don't see a dog I want on the site, I would like to make a request to the site by using the "Request a Dog" feature.
   
-  **5.** 
+  **5.** I would like the ability to reset my password if I forget it.
   
-  **8.** As the Administrator of the site, I would like to be able to see the vital statistics of the site in one comprehensive and interactive list. i.e. how many recipes there currently are, how many users, how many deleted recipes etc. 
+  **6.** As the Administrator of the site, I would like to be able to easily upload new dogs for sale and edit the ads if there is a typo or change to their sale status.
   
-  **9.** As the Administrator of the site, I would like to restore a recipe I deleted previously to the active recipe collection. 
-
                 
 
 
@@ -109,20 +107,20 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
 
 ### Existing Features
 
-  *   **Navbar** - The Navbar offers an easy navigational view through the site for both non-registered and registered users and is always available to act as a reference point for any user not necessarily sure of their whereabouts on the site. 
-  *   **Intro Page** - The Intro Page welcomes new Users to the site with a brief explainer and offers three options - Browse Recipes, Log in or Create an Account. 
-  *   **Search bar** - The Search bar on the Browse Recipes page is designed to match the text query of the user. The results of the user's queries follow best practices of UX design - the user is reminded of their query and informed of the number of results their query has generated. The search submit button can be triggered by the return or enter key on any device that the site is being viewed through.
+  *   **Navbar** - The Navbar offers an easy navigational view through the site for both non-registered and registered users and is always available to act as a reference point for any user not necessarily sure of their whereabouts on the site. It contains a search bar and the user's cart for quick references.
+  *   **Advertisement Table view** - 
   *   **Full Ad Display** - The full ad view is rendered when 
-  *   **User Accounts** - Each user has the ability to create their own account which enables them to access a wider array of features on the website such as saving(favouriting), editing, deleting and creating recipes. The User is required to enter a Username, Email Address and Password. Their password is hashed on entry and not stored in plain text thanks to the werkzeug library. The password cannot be seen even when viewing the MongoDB on Atlas. All usernames and email addresses must be unique.    
-  *   **User Profiles** - The User Profile is used to view your own recipes as well as other user's recipes. The "My Recipes" link in the navbar allows the user to view the recipes they themselves have added. As mentioned in the Full Recipe Display feature above, if a user wants to view another user's profile, they can follow the link by clicking on the name of the recipe author displayed on the full recipe display. 
-  *   **Admin Area** - The Admin Area allows the site Administrator to view a list of information/statistics about each collection in the database. The information includes the total number of documents in each collection, each document and a link to said document as well as the date each document was created. This view also links each user profile as well as offering a path to the deleted recipe display, where the deleted recipe can be restored. 
+  *   **User Comments**
+  *   **Search bar** - The Search bar is located within the expanded navbar on large screens and also above the Dogs for Sale table display. The results of the user's queries follow best practices of UX design - the user is reminded of their query and informed of the number of results their query has generated. The search submit button can be triggered by the return or enter key on any device that the site is being viewed through.
+  *   **User Accounts** - Each user has the ability to ... 
+  *   **Login/Registration forms** 
+  *   **User Profiles** - The User Profile is used to 
+  *   **Shopping Cart/Checkout** - 
+  *   **Admin Functions** - ...
   *   **Footer** - The footer features links to the social media accounts of myself, the site developer and my Github profile. 
 
 ### Features Left to Implement
 
-  * Comments section on recipes
-  * User ability to upload their own photos
-  * User ability to edit their own profile, change username or email and reset their password
 
 ## Technologies Used
 * [HTML](https://www.w3schools.com/html/html5_intro.asp) - [CSS](https://www.w3schools.com/css/) - [Javascript](https://www.w3schools.com/js/) - [JQuery](https://jquery.com/) - [FontAwesome](https://fontawesome.com/) - [Google Fonts](https://fonts.googleapis.com/css?family=Muli:400,700i|Poppins:400,400i)
@@ -139,11 +137,11 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
 
 * [GitHub](https://github.com) - [Heroku](https://www.heroku.com/) - [Django](https://www.djangoproject.com/) - [Python](https://www.python.org/)
 
-    This website's Git repository is published on GitHub and is deployed on Heroku. The backend code is written in Python and Django is used as the Python web framework and uses Jinja templates.
+    This website's Git repository is published on GitHub and is deployed on Heroku. The backend code is written in Python and Django is used as the Python web framework.
     
-* [PostgreSQL](https://www.postgresql.org/)   
+* [PostgreSQL](https://www.postgresql.org/)/[Sqlite3](https://www.sqlite.org/) 
 
-    PostgreSQL is the NoSQL database used for this site.  
+    PostgreSQL is the NoSQL database used for this site and SQLite is used in the development stage.  
 
     
 

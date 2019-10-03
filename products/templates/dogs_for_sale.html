@@ -6,6 +6,13 @@
 {% block content %} 
 <div class="container-fluid">
     <div class="row">
+        <div class="col-12 text-center">
+            <p><em><b><span class="intro-logo">DogDeal</span> is supplied by the best dog breeders and owners in Ireland.
+            <br>Search through our database to find your new best friend!</em></b></p>
+        </div>
+    </div>
+    
+    <div class="row">
         <div class="col-8 offset-2 col-lg-6 offset-lg-3 mb-3">
             <form action="{% url 'search' %}" method="get">
             <div class="input-group search-wrapper">
@@ -85,7 +92,7 @@
     
     <!-- /Pagination Controls -->
     
-    <!-- Add Another Advertisement button if user is an Admin -->
+    <!-- Add Advertisement button - only viewable if user is an Admin -->
     
     {% if user.is_superuser %}
     <div class="col-12 col-lg-10 offset-lg-1">
@@ -96,7 +103,16 @@
         <a href="{% url 'add_dog_sale_ad' %}"  role="button" class="btn btn-warning">Add an Ad</a>
     </div>
     
-    <!-- /Add Another Advertisement button if user is an Admin -->
+    <!-- /Add Another Advertisement button -->
+    
+    <!-- Link to Request a Dog page -->
+    
+    <div class="col-12 text-center">
+        <p><em><b>Can't find the pooch you're looking for in our listings? <a href="{% url 'wanted_dogs' %}">Make a request here!</a></b></em></p>
+        
+    </div>
+    
+    <!-- /Link to Request a Dog page -->
 
     
 </div>
