@@ -54,13 +54,13 @@ The information structure is laid out in the wireframes below:
  * [Mobile Wireframes](https://github.com/johnnycistudent/dogdeal/blob/master/static/media/FSF%20Mobile%20wireframes.pdf)
  * [Desktop Wireframes](https://github.com/johnnycistudent/dogdeal/blob/master/static/media/FSF%20Desktop%20wireframes.pdf)
 
-The primary functions are represented in the Navbar links; Dogs for Sale, Dogs Wanted, User Profile, the Shopping Cart, the search function and the Log Out function. 
+The primary functions are represented in the Navbar links; Dogs for Sale, Request a Dog, User Profile, the Shopping Cart, the search function and the Log Out function. 
 
 The Dogs for Sale display page is the home page as it is the main focus of the website and can be accessed by clicking on the site logo "DogDeal" in the top left hand corner of the navbar. Each ad is accessible through a button on the ad table display. The Admin can access the "Add an Ad" feature from this page to add more ads to the database.
 
 In an individual Dog for Sale page, the user can add any number of dogs to their shopping cart. The user can access their cart from the Navbar where they will see the number of "products" currently in their cart beside the cart icon in the Navbar. The user can then purchase their dogs from their cart from the checkout once the cart is accessed.
 
-The Dogs Wanted display page has the same format as the Dogs for sale display table, with a link to each ad linked within the table. The user can also add their own request through the "Request a Dog" button underneath the Dogs Wanted table. This button will bring the user to a form to add their own requests for dogs from the site.
+The "Request a Dog" display page has the same format as the Dogs for sale display table, with a link to each ad linked within the table. The user can also add their own request through the "Request a Dog" button underneath the Dogs Wanted table. This button will bring the user to a form to add their own requests for dogs from the site.
 
 Once a "Request a Dog" ad is submitted, the user's ad is rendered and they or other users can comment on it below the ad. 
 
@@ -83,13 +83,15 @@ The font used on the logo for the site is Lato from Google fonts and the icons u
   
   **2.** I would like to create a user profile to be able to interact with the site further. 
   
-  **3.** I would like to be able to safely purchase dogs from the site over a secure connection.
+  **3.** I would like to be able to add a dog to the shopping cart and continue browsing the site.
   
-  **4.** If I don't see a dog I want on the site, I would like to make a request to the site by using the "Request a Dog" feature.
+  **4.** I would like to be able to safely purchase dogs from the site over a secure connection.
   
-  **5.** I would like the ability to reset my password if I forget it.
+  **5.** If I don't see a dog I want on the site, I would like to make a request to the site by using the "Request a Dog" feature.
   
-  **6.** As the Administrator of the site, I would like to be able to easily upload new dogs for sale and edit the ads if there is a typo or change to their sale status.
+  **6.** I would like the ability to reset my password if I forget it.
+  
+  **7.** As the Administrator of the site, I would like to be able to easily upload new dogs for sale and edit the ads if there is a typo or change to their sale status.
   
                 
 
@@ -149,26 +151,62 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
 
 ### Testing User Stories
 
-1. As a non-registered user, I would like to browse 
+1. As a registered or non-registered user, I would like to browse/search through the site and see what dogs are available.   
 
-   **i.** From the opening page 
-   **ii.** 
-   **iii.** 
+   **i.** Go to [the site](https://dog-deal-app.herokuapp.com) and the home page will automatically open on the Dogs for Sale page.  
+   **ii.** Scroll and Search through the available dogs by either manually clicking through the pages available or using the search box to find a specific query.   
+   **iii.** Click on the "View Ad" button within the advertisement table display or click on the title of the ad to view the full ad.    
   
-2. As a registered or non-registered user, I would like 
+2. I would like to create a user profile to be able to interact with the site further.   
 
-   **i.** As a non-registered or registered user, 
-   **ii.** 
-   **iii.** As a registered user,
+   **i.** If in mobile view, click on the hamburger menu to reveal the "Register" page link and click it to go through to the Register page. If viewing from a desktop, the "Register" link is simply in the navbar.  
+   **ii.** Fill in the form fields - email address, username, password and confirm your password.   
+   **iii.** To verify the email field, enter an email address without an "@" symbol and confirm the form does not allow you to continue without a valid email address.  
+   **iv.** To verify the password/confirm password fields, enter a password that doesn't match the confirm password. The form should return the "Register" page with a message below the password confirmation field informing the user "Passwords must match".   
+   **v.** To verify the username field, enter a name that includes a space (or another invalid character). The form should return the "Register" page with a message below the username field informing the user "Enter a valid username. This value may contain only letters, numbers, and @/./+/-/_ characters.".  
   
-3. As a registered or non-registered 
+3. I would like to be able to add a dog to the shopping cart and continue browsing the site.
 
-   **i.** Navigate to
-   **ii.** 
-   **iii.** 
+   **i.** Browse through the advertisements and click on "View Ad" to get a full view of the Ad.  
+   **ii.** Select the quantity of the product from the selection box beside the "Add to Cart" button and then click the "Add to Cart" button to add the product.    
+   **iii.** Verify that the number on the shopping cart icon on the navbar (within the hamburger menu if viewing from a mobile device) corresponds with the quantity you have entered in the previous step.   
+   **iv.** Repeat this step on another Dog to verify the correct quantity is added to the cart.   
+   **v.** Click into the shopping cart icon to view the order you have so far.    
+   **vi.** Change your order by changing the quantity amount on the number field beside one of the products and clicking the amend button or remove it completely by clicking the remove button. Verify the order total changes in accordance with your changes. Stay on this page for the next User story.    
 
-  
-4. As a registered or non-registered user, I would like 
+4. I would like to be able to safely purchase dogs from the site over a secure connection.  
+
+   **i.** Following on from the previous step with products in the cart within the shopping cart page, click on the "Checkout" button to go to the checkout page.         
+   **ii.** Fill out the personal details fields and then fill out the credit card with Stripe's test number "4242 4242 4242 4242", the security code "111" and the expiration date any date past the current month. Click "Pay Now" button.       
+   **iii.**  You should be taken back to the home page with an alert appearing telling you you have successfully paid.    
+   **iv.** To test the personal information of the checkout form, leave a field empty, such as "Full Name" and see how the form informs you you are missing an entry.    
+   **v.** To test the payment details on the checkout form, enter "4242 4242 4242 4241", replacing the last digit with the number 1 instead of number 2. The form should stop you from submitting and display the error message "Your card number is incorrect." Repeat this step with an erroneous Expiration date and a similar error alert will appear.      
+
+
+5. If I don't see a dog I want on the site, I would like to make a request to the site by using the "Request a Dog" feature.   
+
+   **i.** After checking the "Dogs for Sale" section, if the user can't find the particular breed of dog they're interested in purchasing they can navigate to the "Request a Dog" page in the Navbar (within the hamburger menu in mobile view).   
+   **ii.** Scroll to the bottom of the page and click the "Request a Dog" button.    
+   **iii.** Fill out the form with the relevant information and submit it and you will be reverted to the new ad you have created.  
+   **iv.**  Review your information in the ad and click the edit symbol in the top right of the advertisement in order to make changes and you will be taken into an edit page.
+   **v.** The Admin and user can converse using the comments underneath the ad and then either can edit the information in the ad to reflect the status of the advertisement.    
+
+6. I would like the ability to reset my password if I forget it.  
+
+   **i.** Make sure you are logged out and follow the "Login" link in the menu navbar.   
+   **ii.** Click the "Reset Password" link underneath the Login form and you will be taken to the reset password page.      
+   **iii.** You will be prompted to enter your email into a field and click the "Reset Password" button. You will then be taken to a page that tells you that an instructional email has been sent to your email address.     
+   **iv.** Check your email inbox for the instructional email or junk email if it's not immediately in your inbox. Follow the link in the email and you will be taken to the password change form on the site.    
+   **v.** Enter your new password and submit it and your password has been changed successfully. Follow the link from the page you are reverted to and Log in to ensure the password change has worked.
+   **vi.** To test the form for the new password, enter your old password to ensure that the form won't allow you to submit the same password.
+
+7. As the Administrator of the site, I would like to be able to easily upload new dogs for sale and edit the ads if there is a typo or change to their sale status.  
+
+   **i.** To Log in as the Admin, enter the details: Username - admin , Password - newpassword .
+   **ii.** Responding to a user request for a new dog from User Story no. 5, go to the "Dogs for Sale" page and scroll to the bottom and click on the "Add an Ad" button.       
+   **iii.** Fill out the relevant details on the ad corresponding to the user's request and submit the ad.   
+   **iv.** Respond to the user's request in the comments under their request ad.  
+
 
   
    
