@@ -125,17 +125,19 @@ def edit_dog_wanted_ad(request, pk=None):
     
     
     wanted_ad = get_object_or_404(ProductWanted, pk=pk)
-    # user = request.user
+    user = request.user
     
     if request.user == wanted_ad.posted_by:
         if request.method == "POST":
             form = AddWantedAdForm(request.POST, request.FILES, instance=wanted_ad)
             if form.is_valid():
                 form.save()
-                return redirect('view_dog_wanted_ad', pk=wanted_ad.pk)
+                return redirect('wanted_dog_ad', pk=wanted_ad.pk)
         else:
-            form = AddSaleAdForm(instance=wanted_ad)
-        return render(request, "wanted_dog_ad.html", {"form": form}) 
+            form = AddWantedAdForm(instance=wanted_ad)
+        return render(request, "add_dog_wanted.html", {"form": form}) 
+        
+        
                 
 @login_required()
 def delete_dog_wanted_ad(request, pk):

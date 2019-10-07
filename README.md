@@ -185,8 +185,8 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
 ### Bugs
   Most of the bugs I encountered while developing this site...
   This produced the following bugs when I asked family and friends to test my site:
-  * User search queries 
-  * When making the function that remove
+  * Connecting S3 
+  * Password email settings
  
   I solved these problems by...
 
@@ -198,7 +198,7 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
 
 ## Deployment
 
-The app is deployed to Heroku and can be found at the following link: []()
+The app is deployed to Heroku and can be found at the following link: [https://dog-deal-app.herokuapp.com/](https://dog-deal-app.herokuapp.com/)
 
   - Download the repo for my project or clone it using the following method: 
   
@@ -212,11 +212,9 @@ This website was designed by John O'Connor. Stack Overflow, the Code Institute t
 
 ### Media 
 
-   - The  
-
-   - The backup photo for recipes without a photo and the Intro page background were taken from a free search of [Pixabay](https://pixabay.com/).  
+   - The jumbotron banner image is taken from [Pixabay](https://pixabay.com/).  
    
-   - The favicon image was found at
+   - The favicon image was generated at [https://favicon.io/favicon-generator/](https://favicon.io/favicon-generator/).
    
    - Any other photos uploaded by Users were sourced by them.
 
@@ -224,5 +222,8 @@ This website was designed by John O'Connor. Stack Overflow, the Code Institute t
 ## Acknowledgements
 
   * [Stack Overflow](https://stackoverflow.com/), [W3Schools](https://www.w3schools.com/) and [Slack](https://slack.com/) were very useful when coming up against problems that many other people had also encountered.
+  * [https://simpleisbetterthancomplex.com](https://simpleisbetterthancomplex.com) was very helpful providing many tutorials on a lot of different features of Django. I also used [https://docs.djangoproject.com](https://docs.djangoproject.com) for the likes of pagination and comments.
+  * The product view was taken and heavily edited from [this bootsnipp code](https://bootsnipp.com/snippets/orOGB).
+  * The shopping cart code was taken and edited from [this nicesnippets code](http://nicesnippets.com/snippet/bootstrap-4-shopping-cart-design-example).
   * 
 
