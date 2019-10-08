@@ -110,18 +110,14 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
 ### Existing Features
 
   *   **Navbar** - The Navbar offers an easy navigational view through the site for both non-registered and registered users and is always available to act as a reference point for any user not necessarily sure of their whereabouts on the site. It contains a search bar and the user's cart for quick references.
-  *   **Advertisement Table view** - 
-  *   **Full Ad Display** - The full ad view is rendered when 
-  *   **User Comments**
+  *   **Advertisement Table view** - The Advertisement table view allows users to view the main relevant ad details. In desktop view the user can see the fields for the Ad title, image, description, breed, location and the "View Ad" button which invites the user to view the ad in its entirety on its own page. In a mobile view, just the most important information is on display to make it easy to read without overcrowding the screen with details; just the Ad title, description and the "View Ad" button.   
+  *   **Full Ad Sale Display** - The full ad sale view - "Dogs for Sale" ad - is rendered when the "View Ad" button is followed from the Ad Table view. The Ad information is represented on a card with the photo at the top of the card. If there is no photo, the card starts with the Ad title. The ad lists the following information: Ad title, price, description, breed, colour, location, status, ad views and published date. At the bottom of the ad are the "Add to Cart" button and the quantity field. Below the photo at the top left of the ad are the edit and delete buttons that are only visible to the admin. The heading displayed in the Banner heading is the ad title.    
+  *   **Full Ad Wanted Display** - The full ad wanted view - "Request a Dog" ad - is rendered when the "View Ad" button is followed from the Request a Dog Table view. The Ad information is represented on a card like the Full Sale Ad display page but without the photo. The ad lists the following information: Ad title, price, description, breed, colour, location, status, ad views, posted by and published date. The heading displayed in the Banner heading is the requested dog breed. There is a "Add a comment" button below the ad in order for the user/admin to be able to comment on the post.        
+  *   **User Comments** - The user comments are used below the "Request a Dog" individual ad pages as way of communicating between the user and admin on the status of the request ads. The comment page itself is just a text field where the user can write their comment and submit. The comments displayed below the ads have the date and the username who posted the comment. When another user comments after the initial comment, it is displayed chronologically from top to bottom so it reads like a regular thread. There is also a delete comment function for the author of the comment at the top right of the comment display.   
   *   **Search bar** - The Search bar is located within the expanded navbar on large screens and also above the Dogs for Sale table display. The results of the user's queries follow best practices of UX design - the user is reminded of their query and informed of the number of results their query has generated. The search submit button can be triggered by the return or enter key on any device that the site is being viewed through.
-  *   **User Accounts** - Each user has the ability to ... 
-  *   **Login/Registration forms** 
-  *   **User Profiles** - The User Profile is used to 
-  *   **Shopping Cart/Checkout** - 
-  *   **Admin Functions** - ...
-  *   **Footer** - The footer features links to the social media accounts of myself, the site developer and my Github profile. 
-
-### Features Left to Implement
+  *   **Login/Registration forms**  - Each user has the ability to create their own account and they need to do that in order to buy from the site. To register, the user must provide an email address, username and password. The Login form features a reset password link and function (explained fully in [User Stories](#testing-user-stories)). 
+  *   **Shopping Cart/Checkout** - The shopping cart is represented in the navbar and allows users to keep adding to it until they are ready to review their order and go to the checkout. The number of items within the cart are represented alongside the cart icon with a number as traditional for ecommerce sites.   
+  *   **Footer** - The footer features links to the social media accounts of myself, the site developer and my Github profile.   
 
 
 ## Technologies Used
@@ -188,7 +184,7 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
    **i.** After checking the "Dogs for Sale" section, if the user can't find the particular breed of dog they're interested in purchasing they can navigate to the "Request a Dog" page in the Navbar (within the hamburger menu in mobile view).   
    **ii.** Scroll to the bottom of the page and click the "Request a Dog" button.    
    **iii.** Fill out the form with the relevant information and submit it and you will be reverted to the new ad you have created.  
-   **iv.**  Review your information in the ad and click the edit symbol in the top right of the advertisement in order to make changes and you will be taken into an edit page.
+   **iv.**  Review your information in the ad and click the edit symbol in the top right of the advertisement in order to make changes and you will be taken into an edit page.  
    **v.** The Admin and user can converse using the comments underneath the ad and then either can edit the information in the ad to reflect the status of the advertisement.    
 
 6. I would like the ability to reset my password if I forget it.  
@@ -202,7 +198,7 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
 
 7. As the Administrator of the site, I would like to be able to easily upload new dogs for sale and edit the ads if there is a typo or change to their sale status.  
 
-   **i.** To Log in as the Admin, enter the details: Username - admin , Password - newpassword .
+   **i.** To Log in as the Admin, enter the details: Username - admin , Password - thisismypassword .  
    **ii.** Responding to a user request for a new dog from User Story no. 5, go to the "Dogs for Sale" page and scroll to the bottom and click on the "Add an Ad" button.       
    **iii.** Fill out the relevant details on the ad corresponding to the user's request and submit the ad.   
    **iv.** Respond to the user's request in the comments under their request ad.  
