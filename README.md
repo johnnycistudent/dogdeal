@@ -209,20 +209,22 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
 
 ### Responsiveness
   I have tested out the responsivesness of the website on Google Chrome, Microsoft Edge and Mozilla Firefox using Dev tools, as well as testing it on Safari on various iOS devices.  
-  The Recipe cards were designed to help the responsiveness of the site. On mobile view, the screen displays one recipe per column, on medium devices two cards are displayed and then three cards are displayed on anything larger. Bootstrap's grid system was very useful in this regard and meant the only media query I needed for the whole site was for the Admin Area info table.
+  
+  The banner hero image reduces in size from desktop to smaller devices so it doesn't take up as much space at the top of the screen and the user doesn't need to scroll as much on mobile devices. 
+  
+  On mobile view and medium devices, the the advertisement tables (both sale and requests) only show the most relevant information - Ad title, description and the action button to go to the full ad view with the aid of a media query. On larger screen views, more info is available to the user such as the ad seller location, image (if available) and breed. 
   The tests took place on the devices below, both in horizontal and vertical view ports. All buttons and links work on all devices.  
    
-    * Small devices - iPhone 6s, Samsung J5, Samsung S9. 
+    * Small devices - iPhone 6s, iPhone X, Samsung J5, Samsung S9. 
     * Medium devices - iPad, Samsung Tablet. 
-    * Large/Extra Large devices - Lenovo ideapad 520, Asus Vivobook.  
+    * Large/Extra Large devices - Lenovo ideapad 520, Asus Vivobook, Samsung 49-Inch 4K Ultra HD Smart LED TV.  
 
 ### Bugs
   Most of the bugs I encountered while developing this site...
   This produced the following bugs when I asked family and friends to test my site:
-  * Connecting S3 
-  * Password email settings
- 
-  I solved these problems by...
+  * When I switched from the development stage to hosting the app on Heroku, I had an issue with displaying the images from the advertisements that were hosted on AWS S3 on the site. The static files such as the banner image, the css files and js files were working but when I uploaded an image from the front end forms, the images wouldn't be displayed or be stored in S3. When I uploaded from the admin panel, the file would work but that wouldn't work for the purposes of this project. The fact the admin panel worked for uploading the image files made me aware that the connection between S3 and my project wasn't an issue, it must've been something within my forms.   
+  I found the answer in a stackoverflow query [here](https://stackoverflow.com/questions/44489956/amazon-s3-storing-image-files-from-django-dont-upstream-uploaded-images-by). The tutorials that I followed (the Code Institute tutorials and tutorials from [here](https://simpleisbetterthancomplex.com)) helped me to set up saving the information entered by the user on the form but I was missing the "request.FILES" when saving the form data  in the views.py file from the products app. I also added " enctype="multipart/form-data" " to the HTML form. I learned more about the process [here](https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html) It was a simple fix in the end but one that stumped me.  
+  * I had an issue using my own email as the host email as my google account security settings kept preventing my app from being used as the host. I allowed third party application access on my google account security settings but unless I did that every single time google was still blocking my reset password emails. I consulted the Full-Stack Frameworks channel on Stack and saw that a few other users had set up a new gmail account so their security settings for their personal email wouldn't interfere with the app's email hosting. I set up a new email account and allowed third party apps access and because there was no google account linked to it, it worked.
 
  
 
@@ -256,6 +258,7 @@ This website was designed by John O'Connor. Stack Overflow, the Code Institute t
 ## Acknowledgements
 
   * [Stack Overflow](https://stackoverflow.com/), [W3Schools](https://www.w3schools.com/) and [Slack](https://slack.com/) were very useful when coming up against problems that many other people had also encountered.
+  * I took inspiration from the various mini projects in the Code Institute's Full-Stack Frameworks module and used the code used in those lessons as a starting off point to customise my code on top of their examples.
   * [https://simpleisbetterthancomplex.com](https://simpleisbetterthancomplex.com) was very helpful providing many tutorials on a lot of different features of Django. I also used [https://docs.djangoproject.com](https://docs.djangoproject.com) for the likes of pagination and comments.
   * The product view was taken and heavily edited from [this bootsnipp code](https://bootsnipp.com/snippets/orOGB).
   * The shopping cart code was taken and edited from [this nicesnippets code](http://nicesnippets.com/snippet/bootstrap-4-shopping-cart-design-example).
