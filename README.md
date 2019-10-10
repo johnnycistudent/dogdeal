@@ -236,10 +236,46 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
 
 The app is deployed to Heroku and can be found at the following link: [https://dog-deal-app.herokuapp.com/](https://dog-deal-app.herokuapp.com/)
 
-  - Download the repo for my project or clone it using the following method: 
+To deploy this app:
+ 
+ - Download the repo for my project or clone it using the following method: 
+ - Open a new workspace and download the git repository with the following CLI commands:
+  ```
+  https://github.com/johnnycistudent/dogdeal.git
+  ```   
+  - This method will put everything into a subfolder so cut and paste the project out of the subfolder and delete the subfolder so all the paths are correct.
+  - Create a virtual environment and check the requirements.txt for the necessary packages used in this app and install them via the following command in the CLI:
+  ```
+  pip3 install -r requirements.txt
+  ```   
+  - Git init, commit and push your repo to github. 
+  - Create a new app in Heroku 
+  - Link the github repo to Heroku by going to the deploy tab in Heroku and link your github repo in the app connected to GitHub section. 
+  - Enable the automatic deployment in the same tab so everytime you make changes and commit and push to github, it automatically pushes to Heroku too. Make sure it is set to the Master branch.
+  - In the resources tab in Heroku, add Postgres to add-ons. 
+  - In the Heroku settings tab, enter the following enviromental variables in the config vars:
+      - "SECRET_KEY" - used to provide cryptographic signing, and should be set to a unique, unpredictable value. 
+      - "STRIPE_PUBLISHABLE" - required by Stripe and provided to you when you set up a Stripe account.
+      - "STRIPE_SECRET" - required by Stripe and provided to you when you set up a Stripe account.
+      - "DATABASE_URL" - address of the PostgreSQL database. 	
+      - "AWS_ACCESS_KEY_ID"	- provides access to static and media files stored in AWS S3 bucket.
+      - "AWS_SECRET_ACCESS_KEY" -	provides access to static and media files stored in AWS S3 bucket.
+      - "EMAIL_USER" - email address of the host email from which the site sends reset password settings email.
+      - "EMAIL_PASSWORD" - email password of the above email to give the app access to the email account.
+      - set "DISABLE_COLLECTSTATIC" to "1" - prevents media and static files that are stored on S3 being pushed to Heroku. 
+  - Create a file in the top folder of your local environment named "env.py" and copy the above security enviromental variables. Make sure to .gitignore this file so it won't show up on your github repo as it contains sensitive information.
+  - type in the following to your CLI:  
+  ```python3 manage.py createsuperuser```  
+    A super user is then created once you enter in the name, email address and password.
+  - Enter the following commands to migrate your models to the new DB:
+  ```
+  python3 manage.py makemigrations
+  ```   
+  followed by:
+  ```
+  python3 manage.py migrate
+  ```
   
-
-
 
 ## Credits
 This website was designed by John O'Connor. Stack Overflow, the Code Institute tutors and the Code Institute Full-Stack Frameworks Milestone Project channel were also extremely helpful during the production of this project.

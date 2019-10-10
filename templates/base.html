@@ -77,8 +77,12 @@
             <h3 class="display-4">{% block page_heading %}{% endblock %}</h3>
         </div>
     </div>
-
-   
+    
+    <div class="d-none d-lg-block d-xl-none">
+    <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+    </div>
 
    {% if messages %}
     <div class="container-fluid">
@@ -104,17 +108,18 @@
     <footer class="container text-center">
         <div="row">
             <hr>
-            <p>Full Stack Development Project <a class="text-secondary" href="https://github.com/johnnycistudent"><i class="fab fa-github"></i></a>
+            <p>Full Stack Development Project <a class="text-secondary" href="https://github.com/johnnycistudent" target="_blank"><i class="fab fa-github"></i></a>
             <br><span style="font-style:italic ">JOC © 2019</span>
             </p>
         </div>
     </footer>
 
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script type="text/javascript"  src="{% static 'js/main.js' %}"></script>
     {% block head_js %} {% endblock head_js %}
+    
 </body>
 
 </html>
