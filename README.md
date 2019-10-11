@@ -12,15 +12,16 @@ DogDeal can be accessed here: [https://dog-deal-app.herokuapp.com](https://dog-d
 
 
 #### Strategy
-*WHY does this site exist? And for who? (Target Audience) Detail goal of creator/user.*  
 The idea behind this website is to create a one stop shop for purchasing dogs online. It can also be used to request a breed of dog you can't find anywhere else. Simply place a Request a Dog ad onto the site and the admin can get back to you in the comments below the your ad.
 
 #### Scope
-*WHAT are we doing? Outline features and functions that help achieve goals from Strategy.*  
-
 
 ###### Functional requirements
-The most basic requirements for this project are to have advertisements that are attractive to the user and easy to read and to have a user registration system that allows users to sign in in order to make purchases or requests.
+The most basic requirements for this project are 
+ - to have advertisements that are attractive to the user and easy to read
+ - to have a add/edit advertisement function where users can add their own requests in the form of an advertisement.
+ - for users to have the ability to interact/comment with the site admins in order to communicate their needs.
+ - to have a user registration system that allows users to sign in in order to make purchases or requests.
 
 
 The site should be responsive and work on all browsers.   
@@ -41,18 +42,6 @@ The content requirements for the functions proposed above would be as follows:
 
 
 #### Structure
-*HOW - How much content is there, how is it organised, how is it prioritised, interaction design and architecture*  
-
-
-The information architecture of the...
-
-#### Skeleton
-*How is the information structured? How is it logically grouped?*
-
-The information structure is laid out in the wireframes below:
-
- * [Mobile Wireframes](https://github.com/johnnycistudent/dogdeal/blob/master/static/media/FSF%20Mobile%20wireframes.pdf)
- * [Desktop Wireframes](https://github.com/johnnycistudent/dogdeal/blob/master/static/media/FSF%20Desktop%20wireframes.pdf)
 
 The primary functions are represented in the Navbar links; Dogs for Sale, Request a Dog, User Profile, the Shopping Cart, the search function and the Log Out function. 
 
@@ -66,13 +55,19 @@ Once a "Request a Dog" ad is submitted, the user's ad is rendered and they or ot
 
 The user can access their profile and log out of the site from the Navbar.
 
+#### Skeleton
+
+The information structure is laid out in the wireframes below:
+
+ * [Mobile Wireframes](https://github.com/johnnycistudent/dogdeal/blob/master/static/media/FSF%20Mobile%20wireframes.pdf)
+ * [Desktop Wireframes](https://github.com/johnnycistudent/dogdeal/blob/master/static/media/FSF%20Desktop%20wireframes.pdf)
+
+
 #### Surface
-*What will the finished product look like?*
-*What colours, typography and design elements will be used?*
 
 I have previously used Bootswatch in other projects and find their themes to be very useful so I used their Simplex theme for this project. The mostly white background contrasts well with the red, blue and purple detailing such as on button links and pagination and also allows the black text to stand out. 
 
-The banner/jumbotron image is a nice photo of a Jack Russell terrier's face with it's nose in the foreground and adds character to the site. 
+The banner/jumbotron image is a nice photo of a Jack Russell terrier's face with it's nose in the foreground which adds character to the site. 
 
 The font used on the logo for the site is Lato from Google fonts and the icons used through the site are from FontAwesome. 
 
@@ -81,7 +76,7 @@ The font used on the logo for the site is Lato from Google fonts and the icons u
 
   **1.** As a registered or non-registered user, I would like to browse/search through the site and see what dogs are available.
   
-  **2.** I would like to create a user profile to be able to interact with the site further. 
+  **2.** I would like to create a user account to be able to interact with the site further. 
   
   **3.** I would like to be able to add a dog to the shopping cart and continue browsing the site.
   
@@ -112,16 +107,16 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
   *   **Navbar** - The Navbar offers an easy navigational view through the site for both non-registered and registered users and is always available to act as a reference point for any user not necessarily sure of their whereabouts on the site. It contains a search bar and the user's cart for quick references.
   *   **Advertisement Table view** - The Advertisement table view allows users to view the main relevant ad details. In desktop view the user can see the fields for the Ad title, image, description, breed, location and the "View Ad" button which invites the user to view the ad in its entirety on its own page. In a mobile view, just the most important information is on display to make it easy to read without overcrowding the screen with details; just the Ad title, description and the "View Ad" button.   
   *   **Full Ad Sale Display** - The full ad sale view - "Dogs for Sale" ad - is rendered when the "View Ad" button is followed from the Ad Table view. The Ad information is represented on a card with the photo at the top of the card. If there is no photo, the card starts with the Ad title. The ad lists the following information: Ad title, price, description, breed, colour, location, status, ad views and published date. At the bottom of the ad are the "Add to Cart" button and the quantity field. Below the photo at the top left of the ad are the edit and delete buttons that are only visible to the admin. The heading displayed in the Banner heading is the ad title.    
-  *   **Full Ad Wanted Display** - The full ad wanted view - "Request a Dog" ad - is rendered when the "View Ad" button is followed from the Request a Dog Table view. The Ad information is represented on a card like the Full Sale Ad display page but without the photo. The ad lists the following information: Ad title, price, description, breed, colour, location, status, ad views, posted by and published date. The heading displayed in the Banner heading is the requested dog breed. There is a "Add a comment" button below the ad in order for the user/admin to be able to comment on the post.        
+  *   **Full Ad Wanted Display** - The full ad wanted view - "Request a Dog" ad - is rendered when the "View Ad" button is followed from the Request a Dog Table view. The Ad information is represented on a card like the Full Sale Ad display page but without the photo. The ad lists the following information: Ad title, price, description, breed, colour, location, status, ad views, posted by and published date. The heading displayed in the Banner heading is the requested dog breed. There is an "Add a comment" button below the ad in order for the user/admin to be able to comment on the post.        
   *   **User Comments** - The user comments are used below the "Request a Dog" individual ad pages as way of communicating between the user and admin on the status of the request ads. The comment page itself is just a text field where the user can write their comment and submit. The comments displayed below the ads have the date and the username who posted the comment. When another user comments after the initial comment, it is displayed chronologically from top to bottom so it reads like a regular thread. There is also a delete comment function for the author of the comment at the top right of the comment display.   
   *   **Search bar** - The Search bar is located within the expanded navbar on large screens and also above the Dogs for Sale table display. The results of the user's queries follow best practices of UX design - the user is reminded of their query and informed of the number of results their query has generated. The search submit button can be triggered by the return or enter key on any device that the site is being viewed through.
-  *   **Login/Registration forms**  - Each user has the ability to create their own account and they need to do that in order to buy from the site. To register, the user must provide an email address, username and password. The Login form features a reset password link and function (explained fully in [User Stories](#testing-user-stories)). 
+  *   **Login/Registration forms**  - Each user has the ability to create their own account and they need to do that in order to buy from the site. To register, the user must provide an email address, username and password. The Login form features a reset password link and function (explained fully in [Testing User Stories](#testing-user-stories)). 
   *   **Shopping Cart/Checkout** - The shopping cart is represented in the navbar and allows users to keep adding to it until they are ready to review their order and go to the checkout. The number of items within the cart are represented alongside the cart icon with a number as traditional for ecommerce sites.   
-  *   **Footer** - The footer features links to the social media accounts of myself, the site developer and my Github profile.   
+  *   **Footer** - The footer features a link to my Github profile.   
 
 
 ## Technologies Used
-* [HTML](https://www.w3schools.com/html/html5_intro.asp) - [CSS](https://www.w3schools.com/css/) - [Javascript](https://www.w3schools.com/js/) - [JQuery](https://jquery.com/) - [FontAwesome](https://fontawesome.com/) - [Google Fonts](https://fonts.googleapis.com/css?family=Muli:400,700i|Poppins:400,400i)
+* [HTML](https://www.w3schools.com/html/html5_intro.asp) - [CSS](https://www.w3schools.com/css/) - [Javascript](https://www.w3schools.com/js/) - [JQuery](https://jquery.com/) - [FontAwesome](https://fontawesome.com/) - [Google Fonts](https://fonts.google.com/)
 
     This site's front end is written using HTML, CSS, Javascript and Jquery. It features iconography from FontAwesome's library and fonts from Google Fonts. 
 
@@ -153,7 +148,7 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
    **ii.** Scroll and Search through the available dogs by either manually clicking through the pages available or using the search box to find a specific query.   
    **iii.** Click on the "View Ad" button within the advertisement table display or click on the title of the ad to view the full ad.    
   
-2. I would like to create a user profile to be able to interact with the site further.   
+2. I would like to create a user account to be able to interact with the site further.   
 
    **i.** If in mobile view, click on the hamburger menu to reveal the "Register" page link and click it to go through to the Register page. If viewing from a desktop, the "Register" link is simply in the navbar.  
    **ii.** Fill in the form fields - email address, username, password and confirm your password.   
@@ -220,8 +215,7 @@ As mentioned in the [Skeleton](#skeleton) above, here are the wireframes created
     * Large/Extra Large devices - Lenovo ideapad 520, Asus Vivobook, Samsung 49-Inch 4K Ultra HD Smart LED TV.  
 
 ### Bugs
-  Most of the bugs I encountered while developing this site...
-  This produced the following bugs when I asked family and friends to test my site:
+  The bugs I encountered when testing this site:   
   * When I switched from the development stage to hosting the app on Heroku, I had an issue with displaying the images from the advertisements that were hosted on AWS S3 on the site. The static files such as the banner image, the css files and js files were working but when I uploaded an image from the front end forms, the images wouldn't be displayed or be stored in S3. When I uploaded from the admin panel, the file would work but that wouldn't work for the purposes of this project. The fact the admin panel worked for uploading the image files made me aware that the connection between S3 and my project wasn't an issue, it must've been something within my forms.   
   I found the answer in a stackoverflow query [here](https://stackoverflow.com/questions/44489956/amazon-s3-storing-image-files-from-django-dont-upstream-uploaded-images-by). The tutorials that I followed (the Code Institute tutorials and tutorials from [here](https://simpleisbetterthancomplex.com)) helped me to set up saving the information entered by the user on the form but I was missing the "request.FILES" when saving the form data  in the views.py file from the products app. I also added " enctype="multipart/form-data" " to the HTML form. I learned more about the process [here](https://simpleisbetterthancomplex.com/tutorial/2016/08/01/how-to-upload-files-with-django.html) It was a simple fix in the end but one that stumped me.  
   * I had an issue using my own email as the host email as my google account security settings kept preventing my app from being used as the host. I allowed third party application access on my google account security settings but unless I did that every single time google was still blocking my reset password emails. I consulted the Full-Stack Frameworks channel on Stack and saw that a few other users had set up a new gmail account so their security settings for their personal email wouldn't interfere with the app's email hosting. I set up a new email account and allowed third party apps access and because there was no google account linked to it, it worked.
