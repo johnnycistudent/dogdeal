@@ -7,12 +7,16 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12 offset-sm-1 col-sm-10 offset-lg-3 col-lg-6">
+			
+			<!-- Advertisement Card -->
 			<div class="card ">
 				<div class="row">
-					<!--<div class="col-12 ">-->
+					
+						<!-- Ad image - If no image is present, this div is hidden -->					
 						<aside class="col-sm-12">
 							<div class="dog-image" {% if ad.image %} style="background-image: url('{{ MEDIA_URL }}{{ ad.image  }}')" {% else %} style="display: none" {% endif %}></div>
 						</aside>
+						<!-- Ad image -->
 						<aside class="col-sm-12">
 							<article class="card-body p-5">
 								<h3 class="title mb-3">{{ ad.title|title }}</h3>
@@ -30,7 +34,6 @@
 										<span class="currency">EUR €</span><span class="num">{{ ad.price }}</span>
 									</span>
 								</p>
-								<!-- price-detail-wrap .// -->
 								<dl class="item-property">
 									<dt>Description</dt>
 									<dd>
@@ -41,17 +44,14 @@
 									<dt>Breed</dt>
 									<dd>{{ ad.breed }}</dd>
 								</dl>
-								<!-- item-property-hor .// -->
 								<dl class="param param-feature">
 									<dt>Color</dt>
 									<dd>{{ ad.color }}</dd>
 								</dl>
-								<!-- item-property-hor .// -->
 								<dl class="param param-feature">
 									<dt>Location</dt>
 									<dd>{{ ad.location }}</dd>
 								</dl>
-								<!-- item-property-hor .// -->
 								<dl class="param param-feature">
 									<dt>Status</dt>
 									<dd>{{ ad.status }}</dd>
@@ -65,9 +65,7 @@
 													{{ ad.views }}
 												</dd>
 										</dl>
-										<!-- item-property .// -->
 									</div>
-									<!-- col.// -->
 									<div class="col-sm-7">
 										<dl class="param param-inline">
 											<dt>Published on: </dt>
@@ -77,39 +75,39 @@
 										</dl>
 										
 									</div>
-									<!-- col.// -->
 								</div>
-								<!-- row.// -->
 								<hr>
-
+								
+								<!-- Add to Cart controls -->
 								<form method="POST" action="{% url 'add_to_cart' ad.id %}">
 									{% csrf_token %}
 									<div class="form-row">
+										<!-- Add to Cart quantity input -->
 										<div class="input-group col-5" >
 											<input name="quantity" type="number" min="1" max="999" style="width:50%" class="form-control param param-inline" placeholder="Quantity" required>
 										</div>
+										<!-- /Add to Cart quantity input -->
+										
+										<!-- Add to Cart button -->
 										<div class="input-group-btn col-5" >
 											{% if user.is_authenticated %}
 											<button type="submit" class="btn btn-info text-uppercase"> <i class="fas fa-shopping-cart"></i> Add to cart </button>
 											{% else %}
 											<a role="button" class="btn btn-info disabled text-white" > <i class="fas fa-shopping-cart"></i> Add to cart </a>
-											
 										</div>
+										<!-- /Add to Cart button -->
+										
 										<p><small>You must be logged in to make purchases!</small></p>
 											{% endif %}
 									</div>
 								</form>
-
+								<!-- /Add to Cart controls -->
 							</article>
-							<!-- card-body.// -->
 						</aside>
 						
-						<!-- col.// -->
-					<!--</div>-->
-					<!-- row.// -->
 				</div>
-				<!-- card.// -->
 			</div>
+			<!-- /Advertisement Card -->
 		</div>
 	</div>
 </div>

@@ -2,6 +2,8 @@ body {
     background-color: #FCFCFC;
 }
 
+/*--- Navbar ----*/
+
 .navbar-light .navbar-brand {
     font-family: 'Lato', sans-serif;
     color: #d9230f!important;
@@ -14,16 +16,20 @@ body {
     height: 500px;
 }
 
+/*--- Heading 4 style ----*/
 
 h4 {
     margin: 2rem 0rem 1rem;
 }
 
+/*--- Product cards ----*/
 
 .card {
     box-shadow: 0 10px 8px rgba(0, 0, 0, 0.30),
     0 4px 5px rgba(0, 0, 0, .1);
 }
+
+/*--- Images ----*/
 
 .dog-image {
     background-size: contain;
@@ -46,12 +52,14 @@ h4 {
     width: 100%;
 }
 
-
+/*--- Main section ----*/
 
 .main-section{
 	
 	margin-top:20px;
 }
+
+/*--- Logo style ----*/
 
 .intro-logo {
     font-family: 'Lato', sans-serif;
@@ -66,6 +74,8 @@ h4 {
     margin-top: 20px;
 }
 
+/*--- Back to Top button ----*/
+
 .back-to-top {
     cursor: pointer;
     position: fixed;
@@ -77,6 +87,7 @@ h4 {
 
 /*------- Media Queries --------*/
 
+/*--- Reduces size of jumbotron on smaller than large devices ----*/
 
 @media (max-width: 992px){
     .jumbotron {
@@ -84,7 +95,7 @@ h4 {
     }
 }
 
-
+/*--- Hides table elements when on small screens ----*/
 
 @media screen and (min-width: 100px) and (max-width: 768px) {
   .small-hidden { display: none; }  

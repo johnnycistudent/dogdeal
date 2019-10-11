@@ -20,6 +20,9 @@
 </head>
 
 <body>
+    
+    <!-- Navbar -->
+    
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="logo navbar-brand" href="{% url 'dogs_for_sale' %}">DogDeal</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -65,26 +68,35 @@
                     </a>
                 </li>
             </ul>    
+            
+            <!-- Search box -->
             <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get">
                 <input class="form-control mr-sm-2" name="q" type="text"  placeholder="Search For Sale Ads">
                 <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
             </form>
-            
+            <!-- /Search box -->
         </div>
     </nav>
+    
+    <!-- /Navbar -->
+    
+    <!-- Jumbotron Banner Image -->
     <div class="jumbotron jumbotron-fluid text-center" style="background-image: url('{% static 'media/jumbodog.jpg' %}')">
         <div class="container">
             <h3 class="display-4">{% block page_heading %}{% endblock %}</h3>
         </div>
     </div>
     
-    <div class="d-none d-lg-block d-xl-none">
+    <div class="d-none d-lg-block">
     <a id="back-to-top" href="#" class="btn btn-primary btn-lg back-to-top" role="button">
         <i class="fas fa-chevron-up"></i>
     </a>
     </div>
-
-   {% if messages %}
+    <!-- /Jumbotron Banner Image -->
+    
+    
+    <!-- Flash message Alert container -->    
+    {% if messages %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-10 offset-1 text-center">
@@ -99,12 +111,15 @@
             </div>
                     {% endif %}
         </div>
-        
-    </div>    
+    </div>  
+    <!-- /Flash message Alert container -->    
+
+    
 {% block content %}{% endblock %}
         
     
-    
+    <!-- Footer -->    
+
     <footer class="container text-center">
         <div="row">
             <hr>
@@ -113,8 +128,11 @@
             </p>
         </div>
     </footer>
+    
+    <!-- /Footer -->    
+    
 
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <!-- jQuery first, then Popper.js, Bootstrap JS, custom JS, then Stripe JS -->
     <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script type="text/javascript"  src="{% static 'js/main.js' %}"></script>

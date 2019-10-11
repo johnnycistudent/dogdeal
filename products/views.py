@@ -7,6 +7,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from .models import ProductSelling, ProductWanted, Comment
 from .forms import AddSaleAdForm, AddWantedAdForm, AddCommentForm
 
+# Code taken and edited from Code Institute Mini projects
+
 
 # DOGS FOR SALE VIEWS #
 
@@ -175,22 +177,7 @@ def add_dog_wanted_ad(request):
     return render(request, "add_dog_wanted.html", {"form": form})
             
             
-# @login_required()
-# def edit_dog_wanted_ad(request, pk=None):
-    
-    
-#     wanted_ad = get_object_or_404(ProductWanted, pk=pk)
-    
-#     if request.user == wanted_ad.posted_by:
-#         if request.method == "POST":
-#             form = AddWantedAdForm(request.POST, instance=wanted_ad)
-#             if form.is_valid():
-#                 form.save()
-#                 return redirect('wanted_dog_ad', pk=wanted_ad.pk)
-#         else:
-#             form = AddWantedAdForm(instance=wanted_ad)
-#         return render(request, "add_dog_wanted.html", {"form": form})            
-                
+
 
 # COMMENTS ON WANTED ADS #
 

@@ -5,14 +5,20 @@
 {% block page_heading %}Dogs for Sale{% endblock %}
 {% block content %} 
 <div class="container-fluid">
+    
+    <!-- Brief Intro/Explainer -->
     <div class="row">
         <div class="col-12 text-center">
             <p><em><b><span class="intro-logo">DogDeal</span> is supplied by the best dog breeders and owners in Ireland.
             <br>Search through our database to find your new best friend!</em></b></p>
         </div>
     </div>
+    <!-- /Brief Intro/Explainer -->
+
+    
     
     <div class="row">
+        <!-- Search box -->
         <div class="col-8 offset-2 col-lg-6 offset-lg-3 mb-3">
             <form action="{% url 'search' %}" method="get">
             <div class="input-group search-wrapper">
@@ -26,9 +32,9 @@
                 </form>
             </div>
         </div>
-        
+        <!-- /Search box -->
 
-        
+        <!-- Advertisement Sale Table -->
         <div class="col-12 col-lg-10 offset-lg-1">
             <table class="table table-image">
                 <thead>
@@ -55,6 +61,7 @@
                 </tbody>
             </table>
         </div>
+        <!-- /Advertisement Sale Table -->
         
     </div>
     

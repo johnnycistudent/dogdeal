@@ -5,6 +5,8 @@
 <div class="container-fluid">
 	<div class="row">
 		<div class="col-12 offset-sm-1 col-sm-10 offset-lg-3 col-lg-6">
+			
+			<!-- Request Advertisement Card -->
 			<div class="card ">
 				<div class="row">
 					<aside class="col-sm-12">
@@ -82,17 +84,20 @@
 					</aside>
 				</div>
 			</div>
+			<!-- /Request Advertisement Card -->
+			
 		</div>
 		
+		<!-- Comment section-->
 		<div class="col-12 offset-sm-1 col-sm-10 offset-lg-3 col-lg-6">
 			
 			<h3 class="pt-3">Comments:</h3>
 			
 			
 				
-				
-    			<a href="{% url 'add_comment' wanted_ad.id %}"  role="button" class="btn btn-warning">Add a Comment</a>
-			
+			<!-- Comment CTA button -->
+			<a href="{% url 'add_comment' wanted_ad.id %}"  role="button" class="btn btn-warning">Add a Comment</a>
+			<!-- /Comment CTA button -->
 			
 			
 			{% for comment in comments %}
@@ -113,6 +118,7 @@
 			</div>
 			{% endfor %}
 		</div>
+		<!-- /Comment section-->
 	</div>
 </div>
 

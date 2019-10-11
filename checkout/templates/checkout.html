@@ -3,6 +3,8 @@
 {% load bootstrap_tags %}
 {% load mathfilters %}
 
+<!-- Stripe JS -->
+
 {% block head_js %}
 <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
 <script type="text/javascript">
@@ -11,7 +13,10 @@
     //]]>
 </script>
 <script type="text/javascript" src="{% static 'js/stripe.js' %}"></script>
+
 {% endblock %}
+
+<!-- /Stripe JS -->
 
 {% block content %}
 
@@ -20,6 +25,8 @@
 		
 		
 		<div class="col-12 col-sm-10 offset-sm-1 col-md-8 offset-md-2 col-lg-6 offset-lg-3">
+			
+			<!-- Payment details form -->
 			
 			<form role="form" method="POST" id="payment-form" action="{% url 'checkout' %}">
 				<legend>Payment Details</legend>
@@ -32,6 +39,8 @@
 					{{ payment_form| as_bootstrap }}
 				</div>
 				<div class="row">
+					
+					<!-- Order Summary -->
 	                <div class="col-12 text-center">
 	                    <h3>Order Summary</h3>
 	                </div>
@@ -62,16 +71,24 @@
 	                        </tr>
 	                    </tbody>
 	                </table>
+	                <!-- /Order Summary -->
 	                
+	                <!-- Error Alert -->
 	                <div class="col-12 text-center" id="credit-card-errors" style="display:none">
 						<div class="alert alert-dismissible alert-primary" id="stripe-error-message"></div>
 					</div>
+					<!-- /Error Alert -->
+					
+					<!-- Payment button -->
               		<div class="form-group col-12 col-md-6 offset-md-3">
 						<input class="btn btn-info btn-lg btn-block" id="submit_payment_btn" type="submit" name="commit" value="Pay Now"/>
 					</div>
+					<!-- /Payment button -->
             	</div>
 				{% csrf_token %}
 			</form>
+			
+			<!-- /Payment details form -->
 			
 		</div>
 	</div>

@@ -8,6 +8,8 @@ from django.utils import timezone
 from products.models import ProductSelling
 import stripe
 
+# Code taken from Code Institute mini project
+
 
 # Create your views here.
 stripe.api_key = settings.STRIPE_SECRET

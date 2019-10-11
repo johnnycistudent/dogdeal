@@ -2,6 +2,9 @@ from django.shortcuts import render, redirect, reverse
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 
+# Code taken and edited from Code Institute Mini projects
+
+
 # Create your views here.
 
 def view_cart(request):
@@ -25,7 +28,7 @@ def add_to_cart(request, id):
     
     request.session['cart'] = cart
     messages.success(request, "Added to Cart!")
-    return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+    return redirect('dogs_for_sale')
     
 def adjust_cart(request, id):
     """

@@ -4,6 +4,9 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from accounts.forms import UserLoginForm, UserRegistrationForm
 
+# Code taken from Code Institute Mini projects
+
+
 # Create your views here.
 def index(request):
     return render(request, 'index.html')
@@ -69,6 +72,8 @@ def registration(request):
 def user_profile(request):
     """User's Profile Page"""
     user = User.objects.get(email=request.user.email)
+    
+    # Shows list of all users if the user is an Admin
     
     if user.is_superuser:
         all_users = User.objects.all()

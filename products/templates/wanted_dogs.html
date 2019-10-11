@@ -6,14 +6,17 @@
 {% block content %} 
 <div class="container-fluid">
     <div class="row">
+        <!-- Request a Dog brief/explanation -->
         <div class="col-12 text-center" >
             <p><em><b>If you haven't found the dog you're looking for, simply make a request to <span class="intro-logo">DogDeal</span> below and we'll get back to you ASAP!</em></b></p>
         </div>
+        <!-- /Request a Dog brief/explanation -->
+
     </div>
     
     <div class="row">
 
-        
+        <!-- Advertisement Request Table -->
         <div class="col-12 col-lg-10 offset-lg-1">
             <table class="table table-image">
                 <thead>
@@ -42,10 +45,13 @@
                 </tbody>
             </table>
         </div>
+        <!-- /Advertisement Request Table -->
         
+        <!-- Request a Dog CTA button -->
         <div class="col-12 col-lg-10 offset-lg-1">
             <a href="{% url 'add_dog_wanted_ad' %}"  role="button" class="btn btn-warning">Request a Dog</a>
         </div>
+        <!-- /Request a Dog CTA button -->
     </div>
 </div>
 

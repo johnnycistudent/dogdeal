@@ -297,6 +297,6 @@ This website was designed by John O'Connor. Stack Overflow, the Code Institute t
   * I took inspiration from the various mini projects in the Code Institute's Full-Stack Frameworks module and used the code used in those lessons as a starting off point to customise my code on top of their examples.
   * [https://simpleisbetterthancomplex.com](https://simpleisbetterthancomplex.com) was very helpful providing many tutorials on a lot of different features of Django. I also used [https://docs.djangoproject.com](https://docs.djangoproject.com) for the likes of pagination and comments.
   * The product view was taken and heavily edited from [this bootsnipp code](https://bootsnipp.com/snippets/orOGB).
+  * The Back to Top button for desktop view was taken and edited from [this bootsnipp code](https://bootsnipp.com/snippets/x3p9#comments).
   * The shopping cart code was taken and edited from [this nicesnippets code](http://nicesnippets.com/snippet/bootstrap-4-shopping-cart-design-example).
-  * 
 
